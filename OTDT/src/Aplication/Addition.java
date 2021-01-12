@@ -154,9 +154,9 @@ public class Addition extends JFrame {
                     displayField.setText("Data Updated");
 
                     dispose();
-                    SalaryDisbursement disbursement = new SalaryDisbursement();
-                    disbursement.searchField.setText(field1.getText());
-                    disbursement.showSalaryDisbursement(person);
+//                    SalaryDisbursement disbursement = new SalaryDisbursement();
+//                    disbursement.searchField.setText(field1.getText());
+//                    disbursement.showSalaryDisbursement(person);
                 }
             }
         });

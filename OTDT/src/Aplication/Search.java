@@ -1,5 +1,5 @@
 package Aplication;
-import Login.*;
+//import Login.*;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +28,7 @@ public class Search extends JFrame {
     JLabel label7 = new JLabel("Mobile No");
     JLabel label8 = new JLabel("Email");
     JLabel label9 = new JLabel("Address");
-    JLabel label10 = new JLabel("Total Salary");
+//    JLabel label10 = new JLabel("Total Salary");
 
     JLabel searchLabel = new JLabel("Employe ID");
 
@@ -41,7 +41,7 @@ public class Search extends JFrame {
     JTextField field7 = new JTextField(22);
     JTextField field8 = new JTextField(22);
     JTextField field9 = new JTextField(22);
-    JTextField field10 = new JTextField(22);
+//    JTextField field10 = new JTextField(22);
 
     public JTextField searchField = new JTextField(22);
     JTextField displayField = new JTextField(36);
@@ -49,10 +49,10 @@ public class Search extends JFrame {
     JButton button1 = new JButton("Show");
     JButton button2 = new JButton("New User");
     JButton button3 = new JButton("Logout");
-    JButton button4 = new JButton("Update Data");
-    JButton button5 = new JButton("Salary Breakdown");
+    JButton button4 = new JButton("Addition");
+    JButton button5 = new JButton("Deduction");
     JButton button6 = new JButton("Staff List");
-    JButton button7 = new JButton("Salary Disbursement");
+//    JButton button7 = new JButton("Salary Disbursement");
 
     public void showDetails(EmployeData person){
         field1.setText("");
@@ -64,7 +64,7 @@ public class Search extends JFrame {
         field7.setText("");
         field8.setText("");
         field9.setText("");
-        field10.setText("");
+//        field10.setText("");
         displayField.setText("");
 
         String searchData = searchField.getText().toUpperCase();
@@ -82,7 +82,7 @@ public class Search extends JFrame {
                     field7.setText(data.getMobNumber());
                     field8.setText(data.getEmail());
                     field9.setText(data.getAddress());
-                    field10.setText(data.getSalaryT()+"");
+//                    field10.setText(data.getSalaryT()+"");
                     flag = 1;
                 }
             }
@@ -119,7 +119,7 @@ public class Search extends JFrame {
         field7.setEditable(false);
         field8.setEditable(false);
         field9.setEditable(false);
-        field10.setEditable(false);
+//        field10.setEditable(false);
 
         displayField.setEditable(false);
 
@@ -134,65 +134,65 @@ public class Search extends JFrame {
             }
         });
 
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                Registration registration = new Registration();
-            }
-        });
+//        button2.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                Registration registration = new Registration();
+//            }
+//        });
 
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                Login login = new Login();
-            }
-        });
+//        button3.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                Login login = new Login();
+//            }
+//        });
 
-        button4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                UpdateData update = new UpdateData();
-                update.searchField.setText(field1.getText());
-                update.showDataU(person, update.positionU);
-                update.displayField.setText("");
-                update.frameid = 0;
-            }
-        });
+//        button4.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                UpdateData update = new UpdateData();
+//                update.searchField.setText(field1.getText());
+//                update.showDataU(person, update.positionU);
+//                update.displayField.setText("");
+//                update.frameid = 0;
+//            }
+//        });
 
-        button5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                SalaryBreakdown breakdown = new SalaryBreakdown();
-                breakdown.searchField.setText(field1.getText());
-                breakdown.showSalaryBreakdown(person);
-                breakdown.displayField.setText("");
-                breakdown.frameid = 0;
-            }
-        });
+//        button5.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                SalaryBreakdown breakdown = new SalaryBreakdown();
+//                breakdown.searchField.setText(field1.getText());
+//                breakdown.showSalaryBreakdown(person);
+//                breakdown.displayField.setText("");
+//                breakdown.frameid = 0;
+//            }
+//        });
 
-        button6.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                StaffList stafflist = new StaffList();
-                stafflist.showAll(person);
-            }
-        });
+//        button6.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                StaffList stafflist = new StaffList();
+//                stafflist.showAll(person);
+//            }
+//        });
 
-        button7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                SalaryDisbursement disbursement = new SalaryDisbursement();
-                disbursement.searchField.setText(field1.getText());
-                disbursement.showSalaryDisbursement(person);
-                disbursement.displayField.setText("");
-            }
-        });
+//        button7.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                SalaryDisbursement disbursement = new SalaryDisbursement();
+//                disbursement.searchField.setText(field1.getText());
+//                disbursement.showSalaryDisbursement(person);
+//                disbursement.displayField.setText("");
+//            }
+//        });
 
         panel1.add(searchLabel);
         panel1.add(searchField);
@@ -216,15 +216,15 @@ public class Search extends JFrame {
         panel2.add(field8);
         panel2.add(label9);
         panel2.add(field9);
-        panel2.add(label10);
-        panel2.add(field10);
+//        panel2.add(label10);
+//        panel2.add(field10);
 
         panel5.add(displayField);
 
         panel3.add(button6);
-        panel3.add(button5);
         panel3.add(button4);
-        panel3.add(button7);
+        panel3.add(button5);
+//        panel3.add(button7);
 
         panel4.add(button3);
         panel4.add(button2);
