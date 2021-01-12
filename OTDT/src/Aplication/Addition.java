@@ -126,38 +126,38 @@ public class Addition extends JFrame {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int flag = 0;
-                for (EmployeData data : person.recordList) {
-                    if (data.getId().equals(field1.getText())) {
-                        try {
-                            int hours = Integer.parseInt(field4.getText());
-                            int days = Integer.parseInt(field5.getText());
-                            int amount = Integer.parseInt(field6.getText());
-
-                            data.setOT(hours, days);
-                            data.setCommission(amount);
-
-                        }
-                        catch (Exception f){
-                            System.out.println(f.getMessage());
-                            displayField.setText("Invalid Input");
-                            flag = 1;
-                        }
-                    }
-                }
-                if(flag == 0) {
-                    for (EmployeData dataU : person.recordList) {
-                        dataU.newData();
-                    }
-
-                    person.updateData();
-                    displayField.setText("Data Updated");
+//                int flag = 0;
+//                for (EmployeData data : person.recordList) {
+//                    if (data.getId().equals(field1.getText())) {
+//                        try {
+//                            int hours = Integer.parseInt(field4.getText());
+//                            int days = Integer.parseInt(field5.getText());
+//                            int amount = Integer.parseInt(field6.getText());
+//
+//                            data.setOT(hours, days);
+//                            data.setCommission(amount);
+//
+//                        }
+//                        catch (Exception f){
+//                            System.out.println(f.getMessage());
+//                            displayField.setText("Invalid Input");
+//                            flag = 1;
+//                        }
+//                    }
+//                }
+//                if(flag == 0) {
+//                    for (EmployeData dataU : person.recordList) {
+//                        dataU.newData();
+//                    }
+//
+//                    person.updateData();
+//                    displayField.setText("Data Updated");
 
                     dispose();
-//                    SalaryDisbursement disbursement = new SalaryDisbursement();
+                    Search search = new Search();
 //                    disbursement.searchField.setText(field1.getText());
 //                    disbursement.showSalaryDisbursement(person);
-                }
+//                }
             }
         });
 

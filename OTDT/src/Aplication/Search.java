@@ -150,29 +150,29 @@ public class Search extends JFrame {
 //            }
 //        });
 
-//        button4.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                UpdateData update = new UpdateData();
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Addition addition = new Addition();
 //                update.searchField.setText(field1.getText());
 //                update.showDataU(person, update.positionU);
 //                update.displayField.setText("");
 //                update.frameid = 0;
-//            }
-//        });
+            }
+        });
 
-//        button5.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                SalaryBreakdown breakdown = new SalaryBreakdown();
+        button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Deduction deduction = new Deduction();
 //                breakdown.searchField.setText(field1.getText());
 //                breakdown.showSalaryBreakdown(person);
 //                breakdown.displayField.setText("");
 //                breakdown.frameid = 0;
-//            }
-//        });
+            }
+        });
 
 //        button6.addActionListener(new ActionListener() {
 //            @Override
