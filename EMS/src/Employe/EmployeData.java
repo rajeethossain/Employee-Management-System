@@ -421,10 +421,11 @@ public class EmployeData {
                 System.out.println("2");
 
                 while (readOTDT.hasNextLine()) {
+                    System.out.println("3");
                     String data = read.nextLine();
                     String[] dataSplit = data.split(";");
 
-                    System.out.println("3");
+
 
                     for (EmployeData person : recordList){
 
