@@ -258,7 +258,7 @@ public class EmployeData {
     private File data = new File("Data.txt");
     private File temp = new File("Temp.txt");
     private File dSdata = new File("Disbursement.csv");
-//    private File Adata = new File("Addition");
+    private File otdt = new File("OTDT.txt");
 //    private File Ddata = new File("Deduction");
 
     public File getData() {
@@ -330,6 +330,20 @@ public class EmployeData {
     }
 
 
+    //Save OTDT data to File
+    public void writeOTDT(){
+        try {
+            FileWriter write = new FileWriter(otdt, true);
+
+            write.append(id + ";"  + Bonus + ";" + ot + ";" + commission + ";" + dt + "\n");
+
+            write.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     //Disbursement Data
     public void exportTableData(JTable table){
         try {
@@ -386,9 +400,9 @@ public class EmployeData {
                     personData.setTotalAll(Integer.parseInt(dataSplit[16]));
                     personData.setSalaryT(Integer.parseInt(dataSplit[17]));
                     personData.setBonus(Integer.parseInt(dataSplit[18]));
-                    personData.setOT(Integer.parseInt(dataSplit[19]));
-                    personData.setCommission(Integer.parseInt(dataSplit[20]));
-                    personData.setDT(Integer.parseInt(dataSplit[21]));
+//                    personData.setOT(Integer.parseInt(dataSplit[19]));
+//                    personData.setCommission(Integer.parseInt(dataSplit[20]));
+//                    personData.setDT(Integer.parseInt(dataSplit[21]));
                     personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
 
                     recordList.add(personData);
@@ -398,8 +412,40 @@ public class EmployeData {
             } catch (Exception f) {
                 System.out.println(f.getMessage());
             }
+
+            Scanner readOTDT = new Scanner("OTDT.txt");
+
+            System.out.println("1");
+
+            try {
+                System.out.println("2");
+
+                while (readOTDT.hasNextLine()) {
+                    String data = read.nextLine();
+                    String[] dataSplit = data.split(";");
+
+                    System.out.println("3");
+
+                    for (EmployeData person : recordList){
+
+                        System.out.println("4");
+
+                        if(dataSplit[0].equals(person.id)){
+                            person.setOT(Integer.parseInt(dataSplit[2]));
+                            person.setCommission(Integer.parseInt(dataSplit[3]));
+                            person.setDT(Integer.parseInt(dataSplit[4]));
+                        }
+                    }
+                }
+
+            } catch (Exception f) {
+                System.out.println(f.getMessage());
+            }
+
+
         } catch (FileNotFoundException f) {
             System.out.println(f.getMessage());
         }
+
     }
 }

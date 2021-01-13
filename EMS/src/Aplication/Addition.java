@@ -147,10 +147,11 @@ public class Addition extends JFrame {
                 }
                 if(flag == 0) {
                     for (EmployeData dataU : person.recordList) {
-                        dataU.newData();
+//                        dataU.newData();
+                        dataU.writeOTDT();
                     }
 
-                    person.updateData();
+//                    person.updateData();
                     displayField.setText("Data Updated");
 
                     dispose();
