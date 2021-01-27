@@ -421,6 +421,7 @@ public class EmployeData {
                     recordList.add(personData);
 
                 }
+                read.close();
 
             } catch (Exception f) {
                 System.out.println(f.getMessage());
@@ -428,21 +429,13 @@ public class EmployeData {
 
             Scanner readOTDT = new Scanner("OTDT.txt");
 
-            System.out.println("1");
-
             try {
-                System.out.println("2");
 
                 while (readOTDT.hasNextLine()) {
-                    System.out.println("3");
-                    String data = read.nextLine();
+                    String data = readOTDT.nextLine();
                     String[] dataSplit = data.split(";");
 
-
-
                     for (EmployeData person : recordList){
-
-                        System.out.println("4");
 
                         if(dataSplit[0].equals(person.id)){
                             person.setOT(Integer.parseInt(dataSplit[2]));
@@ -452,14 +445,14 @@ public class EmployeData {
                     }
                 }
 
+                readOTDT.close();
+
             } catch (Exception f) {
                 System.out.println(f.getMessage());
             }
 
-
         } catch (FileNotFoundException f) {
             System.out.println(f.getMessage());
         }
-
     }
 }

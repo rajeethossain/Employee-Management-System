@@ -145,7 +145,8 @@ public class Deduction extends JFrame {
                 }
                 if(flag == 0) {
                     for (EmployeData dataU : person.recordList) {
-                        dataU.newData();
+                        //dataU.newData();
+                        dataU.writeOTDT();
                     }
 
                     person.updateData();
