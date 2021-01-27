@@ -49,10 +49,11 @@ public class Search extends JFrame {
     JButton button1 = new JButton("Show");
     JButton button2 = new JButton("New User");
     JButton button3 = new JButton("Logout");
-    JButton button4 = new JButton("Addition");
-    JButton button5 = new JButton("Deduction");
+//    JButton button4 = new JButton("Addition");
+//    JButton button5 = new JButton("Deduction");
     JButton button6 = new JButton("Staff List");
-//    JButton button7 = new JButton("Salary Disbursement");
+    JButton button7 = new JButton("Done");
+    JButton button8 = new JButton("Salary");
 
     public void showDetails(EmployeData person){
         field1.setText("");
@@ -150,29 +151,29 @@ public class Search extends JFrame {
 //            }
 //        });
 
-        button4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                Addition addition = new Addition();
-//                update.searchField.setText(field1.getText());
-//                update.showDataU(person, update.positionU);
-//                update.displayField.setText("");
-//                update.frameid = 0;
-            }
-        });
-
-        button5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                Deduction deduction = new Deduction();
-//                breakdown.searchField.setText(field1.getText());
-//                breakdown.showSalaryBreakdown(person);
-//                breakdown.displayField.setText("");
-//                breakdown.frameid = 0;
-            }
-        });
+//        button4.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                Addition addition = new Addition();
+////                update.searchField.setText(field1.getText());
+////                update.showDataU(person, update.positionU);
+////                update.displayField.setText("");
+////                update.frameid = 0;
+//            }
+//        });
+//
+//        button5.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                Deduction deduction = new Deduction();
+////                breakdown.searchField.setText(field1.getText());
+////                breakdown.showSalaryBreakdown(person);
+////                breakdown.displayField.setText("");
+////                breakdown.frameid = 0;
+//            }
+//        });
 
 //        button6.addActionListener(new ActionListener() {
 //            @Override
@@ -183,16 +184,16 @@ public class Search extends JFrame {
 //            }
 //        });
 
-//        button7.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                SalaryDisbursement disbursement = new SalaryDisbursement();
-//                disbursement.searchField.setText(field1.getText());
-//                disbursement.showSalaryDisbursement(person);
-//                disbursement.displayField.setText("");
-//            }
-//        });
+        button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SalaryDisbursement disbursement = new SalaryDisbursement();
+                disbursement.searchField.setText(field1.getText());
+                disbursement.showSalaryDisbursement(person);
+                disbursement.displayField.setText("");
+            }
+        });
 
         panel1.add(searchLabel);
         panel1.add(searchField);
@@ -222,9 +223,9 @@ public class Search extends JFrame {
         panel5.add(displayField);
 
         panel3.add(button6);
-        panel3.add(button4);
-        panel3.add(button5);
-//        panel3.add(button7);
+        panel3.add(button8);
+//        panel3.add(button5);
+        panel3.add(button7);
 
         panel4.add(button3);
         panel4.add(button2);
