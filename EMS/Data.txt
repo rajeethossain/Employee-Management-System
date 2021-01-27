@@ -1,7 +1,6 @@
-OFRAJ-1;Tarin;12345;Office;Accounts Officer;Rajshahi;N/A;N/A;N/A;10000;400;400;4000;4000;1600;1600;12000;22000;0;0;0;0;22000
-ITDHA-1;Rajeet Hossain;012548;IT;Manager;Dhaka;N/A;N/A;N/A;10000;400;400;2000;2000;0;200;5000;15000;0;0;5000;0;20000
-ITCTG-1;Anas;537775;IT;Data Entry Incharge;Chittagong;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;10000;0;0;0;0;10000
-OFSYL-1;Siam;5572;Office;Manager;Shylhet;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;10000;0;0;0;0;10000
-MKDHA-1;Lamin;5454;Marketing;Marketing Staff;Dhaka;N/A;N/A;N/A;8000;0;0;0;0;0;0;0;8000;0;0;0;0;8000
-ITDHA-2;Farhee Alina Ahmed;123586554;IT;Data Entry Staff;Dhaka;N/A;N/A;N/A;20000;0;0;0;0;0;0;0;20000;0;0;0;0;20000
-ITDHA-3;Kabir;011125865;IT;Manager;Dhaka;N/A;N/A;N/A;12000;0;0;0;0;0;0;0;12000;0;0;0;0;12000
+ITDHA-1;Rajeet;111111;IT;Manager;Dhaka;N/A;N/A;N/A;10000;0;0;0;0;0;10000;10000;20000;0;0;20;10;20010
+MKCTG-1;Anas;111111;Marketing;Marketing Manager;Chittagong;N/A;N/A;N/A;2000;0;0;0;0;0;0;0;2000;0;0;0;0;2000
+OFRAJ-1;Lamim;111111;Office;Manager;Rajshahi;N/A;N/A;N/A;5000;0;0;0;0;0;0;0;5000;0;0;0;0;5000
+LBSYL-1;Siam;111111;Lab;Lab Incharge;Shylhet;N/A;N/A;N/A;5000;0;0;0;0;0;0;0;5000;0;0;0;0;5000
+LBCTG-1;Swapnil;111111;Lab;Lab Technician;Chittagong;N/A;N/A;N/A;20000;0;0;0;0;0;0;0;20000;0;0;0;0;20000
+OFDHA-1;Shakil;111111;Office;Accounts Officer;Dhaka;N/A;N/A;N/A;5000;0;0;0;0;0;0;0;5000;0;0;0;0;5000

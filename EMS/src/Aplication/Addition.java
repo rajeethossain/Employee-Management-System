@@ -134,6 +134,8 @@ public class Addition extends JFrame {
                             int days = Integer.parseInt(field5.getText());
                             int amount = Integer.parseInt(field6.getText());
 
+                            data.setOtDays(days);
+                            data.setOtHours(hours);
                             data.setOT(hours, days);
                             data.setCommission(amount);
 
@@ -148,10 +150,10 @@ public class Addition extends JFrame {
                 if(flag == 0) {
                     for (EmployeData dataU : person.recordList) {
 //                        dataU.newData();
-                        dataU.writeOTDT();
+                        dataU.updateOTDT();
                     }
 
-//                    person.updateData();
+                    person.saveOTDTUpdate();
                     displayField.setText("Data Updated");
 
                     dispose();

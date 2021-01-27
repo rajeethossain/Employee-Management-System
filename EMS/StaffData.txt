@@ -1,0 +1,6 @@
+ITDHA-1;Rajeet;111111;IT;Manager;Dhaka;N/A;N/A;N/A
+MKCTG-1;Anas;111111;Marketing;Marketing Manager;Chittagong;N/A;N/A;N/A
+OFRAJ-1;Lamim;111111;Office;Manager;Rajshahi;N/A;N/A;N/A
+LBSYL-1;Siam;111111;Lab;Lab Incharge;Shylhet;N/A;N/A;N/A
+LBCTG-1;Swapnil;111111;Lab;Lab Technician;Chittagong;N/A;N/A;N/A
+OFDHA-1;Shakil;111111;Office;Accounts Officer;Dhaka;N/A;N/A;N/A

@@ -31,7 +31,12 @@ public class EmployeData {
     private int otherAll;
     private int Bonus;
     private int ot;
+    private int otDays;
+    private int otHours;
     private int dt;
+    private int dtDays;
+    private int dtHours;
+    private int dtAmt;
     private int commission;
     private int salaryDays;
     private int salaryHours;
@@ -140,14 +145,33 @@ public class EmployeData {
 //        this.salaryHours = salaryDays/24;
 //    }
 //
-//    public void setSalaryDisbursement(int salaryDisbursement) {
-//        this.salaryDisbursement = salaryDisbursement;
-//    }
-//
+    public void setSalaryDisbursement(int salaryDisbursement) {
+        this.salaryDisbursement = salaryDisbursement;
+    }
+
     public void setTotalAll(int totalAll) {
         this.totalAll = totalAll;
     }
 
+    public void setOtDays(int otDays) {
+        this.otDays = otDays;
+    }
+
+    public void setOtHours(int otHours) {
+        this.otHours = otHours;
+    }
+
+    public void setDtDays(int dtDays) {
+        this.dtDays = dtDays;
+    }
+
+    public void setDtHours(int dtHours) {
+        this.dtHours = dtHours;
+    }
+
+    public void setDtAmt(int dtAmt) {
+        this.dtAmt = dtAmt;
+    }
 
     //Get Data
     public String getId() {
@@ -259,8 +283,8 @@ public class EmployeData {
     private File data = new File("Data.txt");
     private File temp = new File("Temp.txt");
     private File dSdata = new File("Disbursement.csv");
-    private File otdt = new File("OTDT.txt");
-//    private File Ddata = new File("Deduction");
+    public File otdt = new File("OTDT.txt");
+//    private File sData = new File("StaffData.txt");
 
     public File getData() {
         return data;
@@ -268,11 +292,24 @@ public class EmployeData {
 
 
     //Write to File
-//    void write(File file){
+    void writeFile(File file){
+        try {
+            FileWriter write = new FileWriter(file, true);
+
+            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+
+            write.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //Write StaffData
+//    void writeStaffData(File file){
 //        try {
 //            FileWriter write = new FileWriter(file, true);
 //
-//            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+//            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + "\n");
 //
 //            write.close();
 //        } catch (IOException e) {
@@ -280,11 +317,25 @@ public class EmployeData {
 //        }
 //    }
 
-    void write(File file){
+
+    //Save OTDT data to File
+//    public void writeOTDT(File file){
+//        try {
+//            FileWriter write = new FileWriter(file, true);
+//
+//            write.append(id + ";"  + Bonus + ";" + otHours + ";" + otDays + ";" + commission + ";" + dtHours + ";" + dtDays + ";" + dtAmt + "\n");
+//
+//            write.close();
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
+
+    public void writeOTDT(File file){
         try {
             FileWriter write = new FileWriter(file, true);
 
-            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + "\n");
+            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";"  + Bonus + ";" + otHours + ";" + otDays + ";" + commission + ";" + dtHours + ";" + dtDays + ";" + dtAmt + "\n");
 
             write.close();
         } catch (IOException e) {
@@ -293,40 +344,11 @@ public class EmployeData {
     }
 
 
-    //New Entry
-    public void saveData() {
-        write(data);
-//        try {
-//            FileWriter write = new FileWriter(data, true);
-//
-//            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
-//
-//            write.close();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-    }
-
-
-    //Update Data
-    public void newData() {
-        write(temp);
-//        try {
-//            FileWriter newData = new FileWriter(temp, true);
-//
-//            newData.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus +  ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
-//
-//            newData.close();
-//
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-    }
-
-    public void updateData() {
+    //Update File
+    public void updateFile(File file) {
         try {
             Scanner scn = new Scanner(temp);
-            FileWriter updateData = new FileWriter(data);
+            FileWriter updateData = new FileWriter(file);
 
             while (scn.hasNextLine()) {
                 updateData.write(scn.nextLine() + "\n");
@@ -343,18 +365,64 @@ public class EmployeData {
     }
 
 
-    //Save OTDT data to File
-    public void writeOTDT(){
-        try {
-            FileWriter write = new FileWriter(otdt, true);
-
-            write.append(id + ";"  + Bonus + ";" + ot + ";" + commission + ";" + dt + "\n");
-
-            write.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+    //New Entry
+    public void saveData() {
+        writeFile(data);
+//        try {
+//            FileWriter write = new FileWriter(data, true);
+//
+//            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+//
+//            write.close();
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
+
+    public void saveOTDT(){
+        writeOTDT(otdt);
+    }
+
+//    public void saveStaffData(){
+//        writeStaffData(sData);
+//    }
+
+
+    //Update Data
+    public void updateData() {
+        writeFile(temp);
+//        try {
+//            FileWriter newData = new FileWriter(temp, true);
+//
+//            newData.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus +  ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+//
+//            newData.close();
+//
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+    }
+
+    public void saveDataUpdate(){
+        updateFile(data);
+    }
+
+    public void updateOTDT(){
+        writeOTDT(temp);
+    }
+
+    public void saveOTDTUpdate(){
+        updateFile(otdt);
+    }
+
+//    public void updateStaffData(){
+//        writeStaffData(temp);
+//    }
+
+//    public void saveStaffDataUpdate(){
+//        updateFile(sData);
+//    }
+
 
 
     //Disbursement Data
@@ -412,11 +480,11 @@ public class EmployeData {
                     personData.setOtherAll(Integer.parseInt(dataSplit[15]));
                     personData.setTotalAll(Integer.parseInt(dataSplit[16]));
                     personData.setSalaryT(Integer.parseInt(dataSplit[17]));
-//                    personData.setBonus(Integer.parseInt(dataSplit[18]));
-//                    personData.setOT(Integer.parseInt(dataSplit[19]));
-//                    personData.setCommission(Integer.parseInt(dataSplit[20]));
-//                    personData.setDT(Integer.parseInt(dataSplit[21]));
-//                    personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
+                    personData.setBonus(Integer.parseInt(dataSplit[18]));
+                    personData.setOT(Integer.parseInt(dataSplit[19]));
+                    personData.setCommission(Integer.parseInt(dataSplit[20]));
+                    personData.setDT(Integer.parseInt(dataSplit[21]));
+                    personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
 
                     recordList.add(personData);
 
@@ -427,32 +495,15 @@ public class EmployeData {
                 System.out.println(f.getMessage());
             }
 
-            Scanner readOTDT = new Scanner("OTDT.txt");
-
-            try {
-
-                while (readOTDT.hasNextLine()) {
-                    String data = readOTDT.nextLine();
-                    String[] dataSplit = data.split(";");
-
-                    for (EmployeData person : recordList){
-
-                        if(dataSplit[0].equals(person.id)){
-                            person.setOT(Integer.parseInt(dataSplit[2]));
-                            person.setCommission(Integer.parseInt(dataSplit[3]));
-                            person.setDT(Integer.parseInt(dataSplit[4]));
-                        }
-                    }
-                }
-
-                readOTDT.close();
-
-            } catch (Exception f) {
-                System.out.println(f.getMessage());
-            }
-
         } catch (FileNotFoundException f) {
             System.out.println(f.getMessage());
         }
     }
+
+//    public EmployeData(){
+//        OTDT otdt = new OTDT();
+//    }
 }
+
+
+

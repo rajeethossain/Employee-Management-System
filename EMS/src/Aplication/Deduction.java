@@ -134,6 +134,9 @@ public class Deduction extends JFrame {
                             int days = Integer.parseInt(field5.getText());
                             int amount = Integer.parseInt(field6.getText());
 
+                            data.setDtDays(days);
+                            data.setDtHours(hours);
+                            data.setDtAmt(amount);
                             data.setDT(hours, days, amount);
                         }
                         catch (Exception f){
@@ -146,10 +149,10 @@ public class Deduction extends JFrame {
                 if(flag == 0) {
                     for (EmployeData dataU : person.recordList) {
                         //dataU.newData();
-                        dataU.writeOTDT();
+                        dataU.updateOTDT();
                     }
 
-                    person.updateData();
+                    person.saveOTDTUpdate();
                     displayField.setText("Data Updated");
 
                     dispose();

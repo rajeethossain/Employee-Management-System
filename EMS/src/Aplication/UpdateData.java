@@ -178,10 +178,15 @@ public class UpdateData extends JFrame {
 
                     if(flag == 0) {
                         for (EmployeData dataU : personU.recordList) {
-                            dataU.newData();
+                            dataU.updateData();
                         }
+                        personU.saveDataUpdate();
 
-                        personU.updateData();
+                        for (EmployeData dataU : personU.recordList) {
+                            dataU.updateOTDT();
+                        }
+                        personU.saveOTDTUpdate();
+
                         displayField.setText("Data Updated");
                     }
                 }
@@ -294,10 +299,16 @@ public class UpdateData extends JFrame {
 
 
                     for (EmployeData dataU : personU.recordList) {
-                        dataU.newData();
+                        dataU.updateData();
                     }
 
-                    personU.updateData();
+                    personU.saveDataUpdate();
+
+                    for (EmployeData dataU : personU.recordList) {
+                        dataU.updateOTDT();
+                    }
+                    personU.saveOTDTUpdate();
+
                     displayField.setText("Data Removed");
                 }
                 else {

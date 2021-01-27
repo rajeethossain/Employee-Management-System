@@ -124,6 +124,7 @@ public class SalaryDisbursement extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
+        OTDT otdt = new OTDT();
 
         person.employeeList();
 
@@ -142,10 +143,10 @@ public class SalaryDisbursement extends JFrame {
                     dataU.setDT(0);
                     dataU.setCommission(0);
 
-                    dataU.newData();
+                    dataU.updateData();
                 }
 
-                person.updateData();
+                person.saveDataUpdate();
                 displayField.setText("Data Updated");
 
                 dispose();

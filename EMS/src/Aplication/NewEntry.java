@@ -108,11 +108,10 @@ public class NewEntry extends JFrame {
 
                     if(flag == 0) {
                         personN.saveData();
-
+                        personN.saveOTDT();
                         dispose();
-                        UpdateData updateData = new UpdateData();
-
-                        updateData.displayField.setText("Data Saved");
+                        NewEntry entry = new NewEntry();
+                        entry.displayField.setText("Data Saved");
                     }
                 } else {
                     displayField.setText("Please Enter Required Data");
@@ -125,7 +124,6 @@ public class NewEntry extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 UpdateData updateData = new UpdateData();
-                updateData.displayField.setText("Data Not Saved");
             }
         });
 
