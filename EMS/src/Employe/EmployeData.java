@@ -92,6 +92,14 @@ public class EmployeData {
         this.rentAll = rentAll;
     }
 
+    public void setEduAll(int eduAll) {
+        this.eduAll = eduAll;
+    }
+
+    public void setExpAll(int expAll) {
+        this.expAll = expAll;
+    }
+
     public void setOtherAll(int otherAll) {
         this.otherAll = otherAll;
     }
@@ -120,14 +128,6 @@ public class EmployeData {
         this.commission = commission;
     }
 
-    public void setEduAll(int eduAll) {
-        this.eduAll = eduAll;
-    }
-
-    public void setExpAll(int expAll) {
-        this.expAll = expAll;
-    }
-
     public void setSalaryT(int salaryT) {
         this.salaryT = salaryT;
     }
@@ -140,13 +140,14 @@ public class EmployeData {
 //        this.salaryHours = salaryDays/24;
 //    }
 //
-    public void setSalaryDisbursement(int salaryDisbursement) {
-        this.salaryDisbursement = salaryDisbursement;
-    }
-
+//    public void setSalaryDisbursement(int salaryDisbursement) {
+//        this.salaryDisbursement = salaryDisbursement;
+//    }
+//
     public void setTotalAll(int totalAll) {
         this.totalAll = totalAll;
     }
+
 
     //Get Data
     public String getId() {
@@ -267,11 +268,23 @@ public class EmployeData {
 
 
     //Write to File
+//    void write(File file){
+//        try {
+//            FileWriter write = new FileWriter(file, true);
+//
+//            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+//
+//            write.close();
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
+
     void write(File file){
         try {
             FileWriter write = new FileWriter(file, true);
 
-            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + "\n");
 
             write.close();
         } catch (IOException e) {
@@ -399,11 +412,11 @@ public class EmployeData {
                     personData.setOtherAll(Integer.parseInt(dataSplit[15]));
                     personData.setTotalAll(Integer.parseInt(dataSplit[16]));
                     personData.setSalaryT(Integer.parseInt(dataSplit[17]));
-                    personData.setBonus(Integer.parseInt(dataSplit[18]));
+//                    personData.setBonus(Integer.parseInt(dataSplit[18]));
 //                    personData.setOT(Integer.parseInt(dataSplit[19]));
 //                    personData.setCommission(Integer.parseInt(dataSplit[20]));
 //                    personData.setDT(Integer.parseInt(dataSplit[21]));
-                    personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
+//                    personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
 
                     recordList.add(personData);
 
