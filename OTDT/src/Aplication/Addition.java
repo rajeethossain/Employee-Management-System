@@ -1,4 +1,5 @@
 package Aplication;
+import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -68,6 +69,7 @@ public class Addition extends JFrame {
         }
     }
 
+    Client client;
     public Addition() {
         setTitle("Addition");
         setSize(450, 400);
@@ -160,6 +162,7 @@ public class Addition extends JFrame {
                     SalaryDisbursement disbursement = new SalaryDisbursement();
                     disbursement.searchField.setText(field1.getText());
                     disbursement.showSalaryDisbursement(person);
+//                    disbursement.client = client;
                 }
             }
         });

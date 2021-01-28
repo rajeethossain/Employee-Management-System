@@ -1,4 +1,5 @@
 package Aplication;
+import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -68,6 +69,7 @@ public class Deduction extends JFrame {
         }
     }
 
+    Client client;
     public Deduction() {
         setTitle("Deduction");
         setSize(450, 400);
@@ -159,6 +161,7 @@ public class Deduction extends JFrame {
                     SalaryDisbursement disbursement = new SalaryDisbursement();
                     disbursement.searchField.setText(field1.getText());
                     disbursement.showSalaryDisbursement(person);
+//                    disbursement.client = client;
                 }
             }
         });

@@ -1,4 +1,5 @@
 package Aplication;
+import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -92,7 +93,6 @@ public class SalaryDisbursement extends JFrame {
         }
     }
 
-
     public SalaryDisbursement() {
         setTitle("Salary Details");
         setSize(450, 560);
@@ -123,6 +123,7 @@ public class SalaryDisbursement extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
+
 //        OTDT otdt = new OTDT();
 
         person.employeeList();
@@ -153,6 +154,7 @@ public class SalaryDisbursement extends JFrame {
                 search.searchField.setText(field1.getText());
                 search.showDetails(person);
                 search.displayField.setText("");
+                search.client.sendData();
             }
         });
 
@@ -173,6 +175,7 @@ public class SalaryDisbursement extends JFrame {
                     dispose();
                     Addition addition = new Addition();
                     addition.showOvertime(person, field1.getText());
+//                    addition.client = client;
                 }
                 else{
                     displayField.setText("Please Enter an Employee ID");
@@ -187,6 +190,7 @@ public class SalaryDisbursement extends JFrame {
                     dispose();
                     Deduction deduction = new Deduction();
                     deduction.showDeduction(person, field1.getText());
+//                    deduction.client = client;
                 }
                 else{
                     displayField.setText("Please Enter an Employee ID");

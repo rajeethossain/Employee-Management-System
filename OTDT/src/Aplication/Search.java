@@ -1,5 +1,6 @@
 package Aplication;
 //import Login.*;
+import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -95,6 +96,11 @@ public class Search extends JFrame {
         }
     }
 
+    Client client;
+
+//    public void sendData(){
+//      client.sendData();
+//    }
 
     public Search() {
         setTitle("Employee Information");
@@ -125,6 +131,8 @@ public class Search extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
+        client = new Client();
+        client.connect();
 
         person.employeeList();
 
