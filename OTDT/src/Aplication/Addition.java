@@ -71,7 +71,7 @@ public class Addition extends JFrame {
 
     Client client;
     public Addition() {
-        setTitle("Addition");
+        setTitle("OTDT->OverTime & Commission");
         setSize(450, 400);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -162,7 +162,6 @@ public class Addition extends JFrame {
                     SalaryDisbursement disbursement = new SalaryDisbursement();
                     disbursement.searchField.setText(field1.getText());
                     disbursement.showSalaryDisbursement(person);
-//                    disbursement.client = client;
                 }
             }
         });

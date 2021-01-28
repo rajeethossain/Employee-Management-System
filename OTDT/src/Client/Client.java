@@ -43,15 +43,17 @@ public class Client{
     public Client(){
         try {
             Socket socket = new Socket("127.0.0.1", 5000);
-//
+
             osw = new OutputStreamWriter(socket.getOutputStream());
             writer = new PrintWriter(osw);
+
+            writer.write("OTDT\n");
+            writer.flush();
 
             isr = new InputStreamReader(socket.getInputStream());
             reader = new Scanner(isr);
 
             employeData = new EmployeData();
-//
 //            FileWriter fileWriter = new FileWriter(employeData.otdt);
 //            Thread getData = new Thread(){
 //                @Override
@@ -70,17 +72,38 @@ public class Client{
 //                    }
 //                    catch (Exception e){
 //                        System.out.println(e.getMessage());
-//                    }
+////                    }
 //                }
 //            };
 //
-////            getData.start();
-//
+//            getData.start();
+
         }
         catch (IOException e){
             System.out.println(e.getMessage());
         }
 
+    }
+
+    public void updateData(){
+
+        try {
+            FileWriter fileWriter = new FileWriter(employeData.otdt);
+
+            while (reader.hasNextLine()) {
+                String line = reader.nextLine();
+                if (line.equals("<eof>")) {
+                    break;
+                }
+                System.out.println(line);
+                fileWriter.append(line + "\n");
+                fileWriter.flush();
+            }
+            System.out.println("Data Updated");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public void sendData(){
@@ -104,69 +127,3 @@ public class Client{
         writer.flush();
     }
 }
-//
-//class DataBase{
-//    EmployeData employeData;
-//    OutputStreamWriter osw;
-//    PrintWriter writer;
-//    InputStreamReader isr;
-//    Scanner reader;
-//
-//    DataBase(Socket socket){
-//        try {
-//
-//            osw = new OutputStreamWriter(socket.getOutputStream());
-//            writer = new PrintWriter(osw);
-//
-//            isr = new InputStreamReader(socket.getInputStream());
-//            reader = new Scanner(isr);
-//
-//            employeData = new EmployeData();
-//
-////            FileWriter fileWriter = new FileWriter(employeData.otdt);
-////            Thread getData = new Thread(){
-////                @Override
-////                public void run() {
-////                    try {
-////                        while (reader.hasNextLine()) {
-////                            String line = reader.nextLine();
-////                            if (line.equals("<eof>")) {
-////                                break;
-////                            }
-////                            System.out.println(line);
-////                            fileWriter.append(line + "\n");
-////                            fileWriter.flush();
-////                        }
-////                        System.out.println("Data Updated");
-////                    }
-////                    catch (Exception e){
-////                        System.out.println(e.getMessage());
-////                    }
-////                }
-////            };
-//
-////            getData.start();
-//
-//        }
-//        catch (IOException e){
-//            System.out.println(e.getMessage());
-//        }
-//
-//    }
-//
-//    public void sendData(){
-//        try {
-//            Scanner readFile = new Scanner(employeData.otdt);
-//            while (readFile.hasNextLine()){
-//                String line = readFile.nextLine();
-//                writer.write(line + "\n");
-//                writer.flush();
-//            }
-//            writer.write("<eof>\n");
-//            writer.flush();
-//        }
-//        catch (IOException e){
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//}

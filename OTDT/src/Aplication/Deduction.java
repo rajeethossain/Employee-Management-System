@@ -71,7 +71,7 @@ public class Deduction extends JFrame {
 
     Client client;
     public Deduction() {
-        setTitle("Deduction");
+        setTitle("OTDT->Deduction");
         setSize(450, 400);
         setLocationRelativeTo(null);
         setResizable(false);

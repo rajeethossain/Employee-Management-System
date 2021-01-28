@@ -96,13 +96,9 @@ public class Search extends JFrame {
         }
     }
 
-    Client client;
-    public void initiate(){
-        client = new Client();
-    }
 
     public Search() {
-        setTitle("Employee Information");
+        setTitle("OTDT->Employee Information");
         setSize(450, 610);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -130,7 +126,7 @@ public class Search extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
-//        Client client = new Client();
+        Client client = new Client();
 
 
         person.employeeList();
@@ -174,7 +170,10 @@ public class Search extends JFrame {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
 //                dispose();
-//                Deduction deduction = new Deduction();
+//                Search search = new Search();
+//                search.initiate();
+////                dispose();
+////                Deduction deduction = new Deduction();
 ////                breakdown.searchField.setText(field1.getText());
 ////                breakdown.showSalaryBreakdown(person);
 ////                breakdown.displayField.setText("");
@@ -182,19 +181,20 @@ public class Search extends JFrame {
 //            }
 //        });
 
-//        button6.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                StaffList stafflist = new StaffList();
-//                stafflist.showAll(person);
-//            }
-//        });
+        button6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                StaffList stafflist = new StaffList();
+                stafflist.showAll(person);
+            }
+        });
 
         button7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 client.sendData();
+
 //                dispose();
 //                Search search = new Search();
 //                search.initiate();

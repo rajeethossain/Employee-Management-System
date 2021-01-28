@@ -94,7 +94,7 @@ public class SalaryDisbursement extends JFrame {
     }
 
     public SalaryDisbursement() {
-        setTitle("Salary Details");
+        setTitle("OTDT->Salary Details");
         setSize(450, 560);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -123,6 +123,7 @@ public class SalaryDisbursement extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
+        Client client = new Client();
 
 //        OTDT otdt = new OTDT();
 
@@ -154,6 +155,7 @@ public class SalaryDisbursement extends JFrame {
                 search.searchField.setText(field1.getText());
                 search.showDetails(person);
                 search.displayField.setText("");
+                client.sendData();
             }
         });
 
