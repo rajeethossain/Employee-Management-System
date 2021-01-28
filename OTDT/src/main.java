@@ -6,5 +6,6 @@ public class main {
 //        Client client = new Client();
 //        client.start();
         Search search = new Search();
+        search.initiate();
     }
 }

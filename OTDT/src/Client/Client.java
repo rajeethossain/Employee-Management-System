@@ -40,7 +40,7 @@ public class Client{
 //
 //    }
 
-    public void connect(){
+    public Client(){
         try {
             Socket socket = new Socket("127.0.0.1", 5000);
 //
@@ -97,6 +97,11 @@ public class Client{
         catch (IOException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    public void disconnect(){
+        writer.write("<eof>\n");
+        writer.flush();
     }
 }
 //

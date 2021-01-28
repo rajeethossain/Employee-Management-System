@@ -154,7 +154,6 @@ public class SalaryDisbursement extends JFrame {
                 search.searchField.setText(field1.getText());
                 search.showDetails(person);
                 search.displayField.setText("");
-                search.client.sendData();
             }
         });
 

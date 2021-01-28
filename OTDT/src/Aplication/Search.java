@@ -97,10 +97,9 @@ public class Search extends JFrame {
     }
 
     Client client;
-
-//    public void sendData(){
-//      client.sendData();
-//    }
+    public void initiate(){
+        client = new Client();
+    }
 
     public Search() {
         setTitle("Employee Information");
@@ -131,8 +130,8 @@ public class Search extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
-        client = new Client();
-        client.connect();
+//        Client client = new Client();
+
 
         person.employeeList();
 
@@ -192,6 +191,16 @@ public class Search extends JFrame {
 //            }
 //        });
 
+        button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                client.sendData();
+//                dispose();
+//                Search search = new Search();
+//                search.initiate();
+            }
+        });
+
         button8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -200,6 +209,7 @@ public class Search extends JFrame {
                 disbursement.searchField.setText(field1.getText());
                 disbursement.showSalaryDisbursement(person);
                 disbursement.displayField.setText("");
+//                client.disconnect();
             }
         });
 
