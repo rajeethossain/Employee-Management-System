@@ -47,11 +47,13 @@ public class Client{
             osw = new OutputStreamWriter(socket.getOutputStream());
             writer = new PrintWriter(osw);
 
+            writer.write("OTDT\n");
+            writer.flush();
+
             isr = new InputStreamReader(socket.getInputStream());
             reader = new Scanner(isr);
 
             employeData = new EmployeData();
-
             FileWriter fileWriter = new FileWriter(employeData.otdt);
             Thread getData = new Thread(){
                 @Override
@@ -83,6 +85,27 @@ public class Client{
 
     }
 
+//    public void updateData(){
+//
+//        try {
+//            FileWriter fileWriter = new FileWriter(employeData.otdt);
+//
+//            while (reader.hasNextLine()) {
+//                String line = reader.nextLine();
+//                if (line.equals("<eof>")) {
+//                    break;
+//                }
+//                System.out.println(line);
+//                fileWriter.append(line + "\n");
+//                fileWriter.flush();
+//            }
+//            System.out.println("Data Updated");
+//        }
+//        catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//    }
+
     public void sendData(){
         try {
             Scanner readFile = new Scanner(employeData.otdt);
@@ -98,4 +121,9 @@ public class Client{
             System.out.println(e.getMessage());
         }
     }
+
+//    public void disconnect(){
+//        writer.write("<eof>\n");
+//        writer.flush();
+//    }
 }

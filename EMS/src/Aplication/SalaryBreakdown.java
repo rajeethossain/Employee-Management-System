@@ -90,7 +90,7 @@ public class SalaryBreakdown extends JFrame {
     public int frameid;
 
     public SalaryBreakdown() {
-        setTitle("Salary Breakdown");
+        setTitle("EMS->Salary Breakdown");
         setSize(450, 540);
         setLocationRelativeTo(null);
         setResizable(false);

@@ -42,7 +42,7 @@ class StaffList extends JFrame {
     }
 
     StaffList(){
-        setTitle("Address Book");
+        setTitle("EMS->Employee List");
         setSize(450,610);
         setLocationRelativeTo(null);
         setResizable(false);

@@ -1,4 +1,5 @@
 package Aplication;
+import Client.Client;
 import Login.*;
 import Employe.*;
 import javax.swing.*;
@@ -96,7 +97,7 @@ public class Search extends JFrame {
 
 
     public Search() {
-        setTitle("Employee Information");
+        setTitle("EMS->Employee Information");
         setSize(450, 610);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -124,6 +125,7 @@ public class Search extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
+        Client client = new Client();
 
         person.employeeList();
 

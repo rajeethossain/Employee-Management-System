@@ -1,5 +1,6 @@
 package Aplication;
 
+import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -55,7 +56,7 @@ public class NewEntry extends JFrame {
 
 
     public NewEntry() {
-        setTitle("Employee Entry");
+        setTitle("EMS->Employee Entry");
         setSize(450, 580);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -71,6 +72,7 @@ public class NewEntry extends JFrame {
         field1.setText("");
 
         EmployeData personN = new EmployeData();
+        Client client = new Client();
 
         personN.employeeList();
         positionN.departmentList();
@@ -109,6 +111,7 @@ public class NewEntry extends JFrame {
                     if(flag == 0) {
                         personN.saveData();
                         personN.saveOTDT();
+                        client.sendData();
                         dispose();
                         NewEntry entry = new NewEntry();
                         entry.displayField.setText("Data Saved");

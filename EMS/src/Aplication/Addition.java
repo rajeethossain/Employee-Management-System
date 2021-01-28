@@ -69,7 +69,7 @@ public class Addition extends JFrame {
    }
 
     public Addition() {
-        setTitle("Addition");
+        setTitle("EMS->OverTime & Commission");
         setSize(450, 400);
         setLocationRelativeTo(null);
         setResizable(false);

@@ -24,7 +24,7 @@ public class DisbursementOutput extends JFrame {
     int totalDisbursement=0;
 
     public DisbursementOutput() {
-        setTitle("Salary Disbursement");
+        setTitle("EMS->Salary Disbursement");
         setSize(1210, 800);
         setLocationRelativeTo(null);
         setResizable(false);

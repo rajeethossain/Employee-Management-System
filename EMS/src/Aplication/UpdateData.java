@@ -1,5 +1,6 @@
 package Aplication;
 
+import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -116,7 +117,7 @@ public class UpdateData extends JFrame {
     }
 
     public UpdateData() {
-        setTitle("Employee Update");
+        setTitle("EMS->Employee Update");
         setSize(450, 680);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -137,6 +138,8 @@ public class UpdateData extends JFrame {
 
         EmployeData personU = new EmployeData();
         personU.employeeList();
+
+        Client client = new Client();
 
 
 
@@ -186,7 +189,7 @@ public class UpdateData extends JFrame {
                             dataU.updateOTDT();
                         }
                         personU.saveOTDTUpdate();
-
+                        client.sendData();
                         displayField.setText("Data Updated");
                     }
                 }
@@ -308,6 +311,7 @@ public class UpdateData extends JFrame {
                         dataU.updateOTDT();
                     }
                     personU.saveOTDTUpdate();
+                    client.sendData();
 
                     displayField.setText("Data Removed");
                 }

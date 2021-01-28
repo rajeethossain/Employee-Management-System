@@ -69,7 +69,7 @@ public class Deduction extends JFrame {
     }
 
     public Deduction() {
-        setTitle("Deduction");
+        setTitle("EMS->Deduction");
         setSize(450, 400);
         setLocationRelativeTo(null);
         setResizable(false);
