@@ -125,7 +125,7 @@ public class Search extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
-        Client client = new Client();
+//        Client client = new Client();
 
         person.employeeList();
 

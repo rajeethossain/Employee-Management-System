@@ -53,6 +53,10 @@ public class SalaryDisbursement extends JFrame {
 
 
     public void showSalaryDisbursement(EmployeData person){
+        Client client = new Client();
+        OTDT otdt = new OTDT();
+        person.employeeList();
+
         field1.setText("");
         field2.setText("");
         field3.setText("");
@@ -127,9 +131,8 @@ public class SalaryDisbursement extends JFrame {
 
         displayField.setEditable(false);
 
-        Client c = new Client();
-        Client client = new Client();
-        OTDT otdt = new OTDT();
+//        Client client = new Client();
+//        OTDT otdt = new OTDT();
         EmployeData person = new EmployeData();
 
         person.employeeList();
