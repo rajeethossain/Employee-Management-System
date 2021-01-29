@@ -47,7 +47,7 @@ public class Client{
             osw = new OutputStreamWriter(socket.getOutputStream());
             writer = new PrintWriter(osw);
 
-            writer.write("OTDT\n");
+            writer.write("EMS\n");
             writer.flush();
 
             isr = new InputStreamReader(socket.getInputStream());
@@ -82,7 +82,6 @@ public class Client{
         catch (IOException e){
             System.out.println(e.getMessage());
         }
-
     }
 
 //    public void updateData(){

@@ -1,11 +1,15 @@
 package Employe;
 
+import Client.Client;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class OTDT {
 
     public OTDT() {
+         Client client = new Client();
+//         client.updateData();
 
         EmployeData staff = new EmployeData();
         staff.employeeList();
