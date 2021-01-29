@@ -82,6 +82,9 @@ public class SalaryDisbursement extends JFrame {
                     field9.setText(data.getOtDays()+"");
                     field10.setText(data.getDtAmt()+"");
 //                    field11.setText(data.getSalaryT()+"");
+                    if(data.getBonus() == 1){
+                        button6.setBackground(Color.green);
+                    }
                     flag = 1;
                 }
             }
@@ -203,12 +206,26 @@ public class SalaryDisbursement extends JFrame {
         button6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(button6.getBackground() == Color.green){
-                    button6.setBackground(null);
+
+                for (EmployeData data : person.recordList) {
+                    if (data.getId().equals(field1.getText())) {
+                        if(button6.getBackground() == Color.green){
+                            button6.setBackground(null);
+                            data.setBonus(0);
+                            field4.setText("0");
+                        }
+                        else {
+                            button6.setBackground(Color.green);
+                            data.setBonus(1);
+                            field4.setText("1");
+                        }
+                    }
                 }
-                else{
-                    button6.setBackground(Color.green);
+                for (EmployeData dataU : person.recordList) {
+                    dataU.updateOTDT();
                 }
+                person.saveOTDTUpdate();
+                displayField.setText("Data Updated");
             }
         });
 
