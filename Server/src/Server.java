@@ -43,7 +43,6 @@ public class Server{
                                 fileWriter.append(line + "\n");
                                 fileWriter.flush();
                             }
-                            System.out.println("Disconnected...");
                         }
                         catch (Exception e){
                             System.out.println(e.getMessage());
@@ -63,7 +62,6 @@ public class Server{
                         }
                         writer.write("<eof>\n");
                         writer.flush();
-                        System.out.println("Disconnected...");
                     }
                 };
                 send.start();
