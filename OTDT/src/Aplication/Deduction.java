@@ -32,9 +32,9 @@ public class Deduction extends JFrame {
     //    JTextField searchField = new JTextField(22);
     JTextField displayField = new JTextField(36);
 
-    //    JButton button1 = new JButton("Save");
-    JButton button2 = new JButton("Done");
-//    JButton button3 = new JButton("Edit");
+    JButton button1 = new JButton("Save");
+//    JButton button2 = new JButton("Done");
+    JButton button3 = new JButton("Back");
 
     public void showDeduction(EmployeData person, String searchData){
         field1.setText("");
@@ -55,9 +55,9 @@ public class Deduction extends JFrame {
                     field1.setText(data.getId());
                     field2.setText(data.getName());
                     field3.setText(data.getBankAcc());
-//                    field4.setText(data.get()+"");
-//                    field5.setText(data.getMobAll()+"");
-//                    field6.setText(data.getMedAll()+"");
+                    field4.setText(data.getDtHours()+"");
+                    field5.setText(data.getDtDays()+"");
+                    field6.setText(data.getDtAmt()+"");
                     flag = 1;
                 }
             }
@@ -70,10 +70,11 @@ public class Deduction extends JFrame {
     }
 
     Client client;
-    public Deduction() {
+    public Deduction(int x, int y) {
         setTitle("OTDT->Deduction");
-        setSize(450, 400);
-        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 400);
+//        setSize(450, 400);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -99,7 +100,7 @@ public class Deduction extends JFrame {
 
         person.employeeList();
 
-//        button1.addActionListener(new ActionListener() {
+//        button2.addActionListener(new ActionListener() {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
 //                for (EmployeData data : person.recordList) {
@@ -125,7 +126,7 @@ public class Deduction extends JFrame {
 //            }
 //        });
 
-        button2.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int flag = 0;
@@ -158,23 +159,22 @@ public class Deduction extends JFrame {
                     displayField.setText("Data Updated");
 
                     dispose();
-                    SalaryDisbursement disbursement = new SalaryDisbursement();
+                    SalaryDisbursement disbursement = new SalaryDisbursement(getX(), getY());
                     disbursement.searchField.setText(field1.getText());
                     disbursement.showSalaryDisbursement(person);
-//                    disbursement.client = client;
                 }
             }
         });
 
-//        button3.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                UpdateData edit = new UpdateData();
-//                edit.searchField.setText(field1.getText());
-//                edit.showDataU(person, edit.positionU);
-//            }
-//        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SalaryDisbursement disbursement = new SalaryDisbursement(getX(), getY());
+                disbursement.searchField.setText(field1.getText());
+                disbursement.showSalaryDisbursement(person);
+            }
+        });
 
 //        button4.addActionListener(new ActionListener() {
 //            @Override
@@ -198,10 +198,10 @@ public class Deduction extends JFrame {
         panel2.add(label6);
         panel2.add(field6);
 
-//        panel3.add(button1);
-//        panel3.add(button3);
+        panel5.add(button1);
+        panel5.add(button3);
 
-        panel5.add(button2);
+//        panel5.add(button2);
 
         panel4.add(displayField);
 

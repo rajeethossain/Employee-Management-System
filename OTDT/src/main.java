@@ -6,6 +6,6 @@ public class main {
         Client client = new Client();
         client.updateData();
 //        client.start();
-        Search search = new Search();
+        Search search = new Search(200,200);
     }
 }

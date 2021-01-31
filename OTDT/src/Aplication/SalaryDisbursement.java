@@ -79,7 +79,7 @@ public class SalaryDisbursement extends JFrame {
                     field6.setText(data.getOtDays()+"");
                     field7.setText(data.getCommission()+"");
                     field8.setText(data.getDtHours()+"");
-                    field9.setText(data.getOtDays()+"");
+                    field9.setText(data.getDtDays()+"");
                     field10.setText(data.getDtAmt()+"");
 //                    field11.setText(data.getSalaryT()+"");
                     if(data.getBonus() == 1){
@@ -96,10 +96,11 @@ public class SalaryDisbursement extends JFrame {
         }
     }
 
-    public SalaryDisbursement() {
+    public SalaryDisbursement(int x, int y) {
         setTitle("OTDT->Salary Details");
-        setSize(450, 560);
-        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 560);
+//        setSize(450, 560);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -154,7 +155,7 @@ public class SalaryDisbursement extends JFrame {
 //                displayField.setText("Data Updated");
 
                 dispose();
-                Search search = new Search();
+                Search search = new Search(getX(), getY());
                 search.searchField.setText(field1.getText());
                 search.showDetails(person);
                 search.displayField.setText("");
@@ -177,7 +178,7 @@ public class SalaryDisbursement extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(!field1.getText().equals("")) {
                     dispose();
-                    Addition addition = new Addition();
+                    Addition addition = new Addition(getX(), getY());
                     addition.showOvertime(person, field1.getText());
 //                    addition.client = client;
                 }
@@ -192,7 +193,7 @@ public class SalaryDisbursement extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(!field1.getText().equals("")) {
                     dispose();
-                    Deduction deduction = new Deduction();
+                    Deduction deduction = new Deduction(getX(), getY());
                     deduction.showDeduction(person, field1.getText());
 //                    deduction.client = client;
                 }

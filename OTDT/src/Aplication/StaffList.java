@@ -21,7 +21,7 @@ class StaffList extends JFrame {
 
     JButton button1 = new JButton("Show");
     JButton button2 = new JButton("Show All");
-    JButton button3 = new JButton("Done");
+    JButton button3 = new JButton("Back");
 
     JTextArea textArea = new JTextArea(25,35);
     JScrollPane scroll = new JScrollPane(textArea);
@@ -40,10 +40,11 @@ class StaffList extends JFrame {
         }
     }
 
-    StaffList(){
+    StaffList(int x, int y){
         setTitle("OTDT->Employee List");
-        setSize(450,610);
-        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 610);
+//        setSize(450,610);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -111,7 +112,7 @@ class StaffList extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Search search = new Search();
+                Search search = new Search(getX(), getY());
             }
         });
 
