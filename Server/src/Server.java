@@ -39,7 +39,7 @@ public class Server{
                                     otdt.updateFile(temp);
                                     break;
                                 }
-                                System.out.println(line);
+//                                System.out.println(line);
                                 fileWriter.append(line + "\n");
                                 fileWriter.flush();
                             }
