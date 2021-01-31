@@ -1,5 +1,6 @@
 package Aplication;
 
+import Client.Client;
 import Employe.EmployeData;
 
 import javax.swing.*;
@@ -22,6 +23,7 @@ class StaffList extends JFrame {
     JButton button1 = new JButton("Show");
     JButton button2 = new JButton("Show All");
     JButton button3 = new JButton("Back");
+    JButton button4 = new JButton("Update OTDT List");
 
     JTextArea textArea = new JTextArea(25,35);
     JScrollPane scroll = new JScrollPane(textArea);
@@ -44,8 +46,6 @@ class StaffList extends JFrame {
     StaffList(int x, int y){
         setTitle("EMS->Employee List");
         setBounds(x, y, 450, 610);
-//        setSize(450,610);
-//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -53,7 +53,6 @@ class StaffList extends JFrame {
         panel1.setBorder(BorderFactory.createTitledBorder("Search"));
         panel2.setPreferredSize(new Dimension(410, 440));
         panel2.setBorder(BorderFactory.createTitledBorder("Details"));
-        //textArea.setPreferredSize(new Dimension(370, 405));
         textArea.setEditable(false);
 
         EmployeData personD = new EmployeData();
@@ -93,18 +92,6 @@ class StaffList extends JFrame {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                textArea.setText("");
-//                scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//                //scroll.getViewport().setBackground(Color.white);
-//                scroll.getViewport().add(textArea);
-//                revalidate();
-//
-//                for (EmployeData data : personD.recordList) {
-//                    textArea.append("Employee ID\t: " + data.getId() + "\n");
-//                    textArea.append("Name\t: " + data.getName() + "\n");
-//                    textArea.append("BaseSalary\t: " + data.getSalaryB() + "\n");
-//                    textArea.append("\n\n");
-//                }
                 showAll(personD);
             }
         });
@@ -118,16 +105,26 @@ class StaffList extends JFrame {
             }
         });
 
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Client client = new Client();
+                client.sendData();
+            }
+        });
+
+
 
         panel1.add(searchLabel);
         panel1.add(searchField);
         panel1.add(button1);
         panel1.add(button2);
 
-        //panel2.add(textArea);
         panel2.add(scroll);
 
+        panel3.add(button4);
         panel3.add(button3);
+
 
         add(panel1);
         add(panel2);

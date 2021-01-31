@@ -30,6 +30,7 @@ public class UpdateData extends JFrame {
     JLabel label14 = new JLabel("Education Allowance");
     JLabel label15 = new JLabel("Rent Allowance");
     JLabel label16 = new JLabel("Other Allowance");
+    JLabel label17 = new JLabel("Bonus Scale");
 
     JLabel searchLabel = new JLabel("Employe ID");
 
@@ -60,10 +61,11 @@ public class UpdateData extends JFrame {
     JButton button5 = new JButton("Remove");
 
     PositionList positionU = new PositionList();
+    BonusScale bonusScaleU = new BonusScale();
 
     public int frameid;
 
-    public void showDataU(EmployeData personU, PositionList positionU){
+    public void showDataU(EmployeData personU, PositionList positionU, BonusScale bonusScaleU){
         field1.setText("");
         field2.setText("");
         field3.setText("");
@@ -80,6 +82,7 @@ public class UpdateData extends JFrame {
         field14.setText("");
         field15.setText("");
         field16.setText("");
+        bonusScaleU.comboBox1.setSelectedIndex(0);
 
 
         String searchData = searchField.getText().toUpperCase();
@@ -104,6 +107,7 @@ public class UpdateData extends JFrame {
                     field14.setText(data.getEduAll()+"");
                     field15.setText(data.getRentAll()+"");
                     field16.setText(data.getOtherAll()+"");
+                    bonusScaleU.comboBox1.setSelectedItem(data.getBonusScale()+"");
                     flag = 1;
                 }
             }
@@ -118,15 +122,13 @@ public class UpdateData extends JFrame {
 
     public UpdateData(int x, int y) {
         setTitle("EMS->Employee Update");
-        setBounds(x, y, 450, 680);
-//        setSize(450, 680);
-//        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 700);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
 
-        panel1.setLayout(new GridLayout(16, 2));
-        panel1.setPreferredSize(new Dimension(410, 400));
+        panel1.setLayout(new GridLayout(17, 2));
+        panel1.setPreferredSize(new Dimension(410, 420));
         panel1.setBorder(BorderFactory.createTitledBorder("Details"));
         panel2.setPreferredSize(new Dimension(410, 70));
         panel2.setBorder(BorderFactory.createTitledBorder("Actions"));
@@ -147,6 +149,7 @@ public class UpdateData extends JFrame {
         positionU.departmentList();
         positionU.designationList();
         positionU.areaList();
+        bonusScaleU.bonusScaleList();
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -177,6 +180,7 @@ public class UpdateData extends JFrame {
                                 displayField.setText("Invalid Input");
                                 flag = 1;
                             }
+                            dataU.setBonusScale(Double.parseDouble(bonusScaleU.comboBox1.getSelectedItem()+""));
                         }
                     }
 
@@ -199,57 +203,6 @@ public class UpdateData extends JFrame {
                 }
             }
         });
-
-//        button2.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                textArea.setText("");
-//                scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//                //scroll.getViewport().setBackground(Color.white);
-//                scroll.getViewport().add(textArea);
-//                revalidate();
-//
-//                for (Record get : recordList) {
-//                    textArea.append("Name\t: " + get.name + "\n");
-//                    textArea.append("Mobile No\t: " + get.mobNumber + "\n");
-//                    textArea.append("Email\t: " + get.email + "\n");
-//                    textArea.append("Address\t: " + get.address + "\n");
-//                    textArea.append("\n\n");
-//
-//                }
-//            }
-//        });
-//
-//        button3.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                textArea.setText("");
-//                scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//                scroll.getViewport().setBackground(Color.white);
-//                scroll.getViewport().add(textArea);
-//                revalidate();
-//                String searchData = field5.getText();
-//
-//                int flag = 0;
-//                if (!field5.getText().equals("")) {
-//                    for (Record data : recordList) {
-//                        if (data.name.equals(searchData)) {
-//                            textArea.append("Name\t: " + data.name + "\n");
-//                            textArea.append("Mobile No\t: " + data.mobNumber + "\n");
-//                            textArea.append("Email\t: " + data.email + "\n");
-//                            textArea.append("Address\t: " + data.address + "\n");
-//                            textArea.append("\n\n");
-//                            flag = 1;
-//                        }
-//                    }
-//                    if (flag == 0) {
-//                        textArea.append("No Records Found");
-//                    }
-//                } else {
-//                    textArea.append("Please Enter a Name");
-//                }
-//            }
-//        });
 
         button2.addActionListener(new ActionListener() {
             @Override
@@ -274,7 +227,7 @@ public class UpdateData extends JFrame {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                showDataU(personU, positionU);
+                showDataU(personU, positionU, bonusScaleU);
             }
         });
 
@@ -359,6 +312,8 @@ public class UpdateData extends JFrame {
         panel1.add(field15);
         panel1.add(label16);
         panel1.add(field16);
+        panel1.add(label17);
+        panel1.add(bonusScaleU.comboBox1);
 
         panel2.add(button1);
         panel2.add(button4);

@@ -24,7 +24,7 @@ public class Registration extends JFrame {
     JButton button4 = new JButton("Done");
 
     public Registration(int x, int y) {
-        setTitle("Registration");
+        setTitle("EMS->User Registration");
         setBounds(x, y, 450, 250);
         setSize(450, 250);
         setLocationRelativeTo(null);

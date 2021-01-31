@@ -22,7 +22,7 @@ import Aplication.*;
     JButton button2 = new JButton("Login");
 
    public Login() {
-        setTitle("Login");
+        setTitle("EMS->Login");
         setSize(450, 210);
         setLocationRelativeTo(null);
         setResizable(false);

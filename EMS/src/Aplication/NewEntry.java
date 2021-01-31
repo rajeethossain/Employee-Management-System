@@ -28,6 +28,7 @@ public class NewEntry extends JFrame {
     JLabel label14 = new JLabel("Education Allowance");
     JLabel label15 = new JLabel("Rent Allowance");
     JLabel label16 = new JLabel("Other Allowance");
+    JLabel label17 = new JLabel("Bonus Scale");
 
     public static JTextField field1 = new JTextField(22);
     JTextField field2 = new JTextField("Required",22);
@@ -50,21 +51,19 @@ public class NewEntry extends JFrame {
 
     JButton button1 = new JButton("Save");
     JButton button2 = new JButton("Done");
-    JButton button3 = new JButton("Get ID");
 
     PositionList positionN = new PositionList();
+    BonusScale bonusScale = new BonusScale();
 
 
     public NewEntry(int x, int y) {
         setTitle("EMS->Employee Entry");
-        setBounds(x, y, 450, 580);
-//        setSize(450, 580);
-//        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 600);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-        panel1.setLayout(new GridLayout(16, 2));
-        panel1.setPreferredSize(new Dimension(410, 410));
+        panel1.setLayout(new GridLayout(17, 2));
+        panel1.setPreferredSize(new Dimension(410, 430));
         panel1.setBorder(BorderFactory.createTitledBorder("Details"));
         panel2.setPreferredSize(new Dimension(410, 70));
         panel2.setBorder(BorderFactory.createTitledBorder("Actions"));
@@ -79,6 +78,7 @@ public class NewEntry extends JFrame {
         positionN.departmentList();
         positionN.designationList();
         positionN.areaList();
+        bonusScale.bonusScaleList();
 
 
         button1.addActionListener(new ActionListener() {
@@ -108,6 +108,7 @@ public class NewEntry extends JFrame {
                         displayField.setText("Invalid Input");
                         flag = 1;
                     }
+                    personN.setBonusScale(Double.parseDouble(bonusScale.comboBox1.getSelectedItem()+""));
 
                     if(flag == 0) {
                         personN.saveData();
@@ -164,10 +165,11 @@ public class NewEntry extends JFrame {
         panel1.add(field15);
         panel1.add(label16);
         panel1.add(field16);
+        panel1.add(label17);
+        panel1.add(bonusScale.comboBox1);
 
         panel2.add(button1);
         panel2.add(button2);
-        panel2.add(button3);
 
         panel3.add(displayField);
 

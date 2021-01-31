@@ -10,7 +10,7 @@ class LoginData {
     String userId;
     String password;
 
-    File loginData = new File("LoginData.txt");
+    File loginData = new File("EMSLoginData.txt");
 
     void saveData() {
         try {

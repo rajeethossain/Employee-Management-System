@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 public class DisbursementOutput extends JFrame {
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
-//    JPanel panel3 = new JPanel();
 
     JLabel label1 = new JLabel("Total Disbursement");
 
@@ -16,10 +15,6 @@ public class DisbursementOutput extends JFrame {
 
     JButton button1 = new JButton("Done");
     JButton button2 = new JButton("Export");
-//    JButton button4 = new JButton("Addition");
-//    JButton button5 = new JButton("Deduction");
-//    JButton button6 = new JButton("Bonus");
-//    JButton button7 = new JButton("Salary Breakdown");
 
     int totalDisbursement=0;
 
@@ -44,7 +39,7 @@ public class DisbursementOutput extends JFrame {
 
         int i = 0;
         for (EmployeData data : person.recordList) {
-            tblData[i] = new Object[]{data.getId(), data.getName(), data.getBankAcc(), data.getSalaryT(), data.getBonus(), data.getOT(), data.getCommission(), data.getDT(), data.getSalaryDisbursement()};
+            tblData[i] = new Object[]{data.getId(), data.getName(), data.getBankAcc(), data.getSalaryT(), data.getBonusAmt(), data.getOT(), data.getCommission(), data.getDT(), data.getSalaryDisbursement()};
             i++;
             totalDisbursement = totalDisbursement + data.getSalaryDisbursement();
         }
@@ -61,7 +56,7 @@ public class DisbursementOutput extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SalaryDisbursement disbursement = new SalaryDisbursement(getX(),getY());
+//                SalaryDisbursement disbursement = new SalaryDisbursement(getX(),getY());
             }
         });
 
@@ -79,11 +74,7 @@ public class DisbursementOutput extends JFrame {
         panel2.add(button2);
         panel2.add(button1);
 
-//        panel3.add(label1);
-//        panel3.add(field1);
-
         add(panel1);
-//        add(panel3);
         add(panel2);
 
         setVisible(true);

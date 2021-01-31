@@ -1,17 +1,11 @@
 package Aplication;
-import Client.Client;
 import Login.*;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Search extends JFrame {
     JPanel panel1 = new JPanel();
@@ -99,8 +93,6 @@ public class Search extends JFrame {
     public Search(int x, int y) {
         setTitle("EMS->Employee Information");
         setBounds(x,y,450,610);
-//        setSize(450, 610);
-//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -126,7 +118,6 @@ public class Search extends JFrame {
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
-//        Client client = new Client();
 
         person.employeeList();
 
@@ -159,7 +150,7 @@ public class Search extends JFrame {
                 dispose();
                 UpdateData update = new UpdateData(getX(), getY());
                 update.searchField.setText(field1.getText());
-                update.showDataU(person, update.positionU);
+                update.showDataU(person, update.positionU, update.bonusScaleU);
                 update.displayField.setText("");
                 update.frameid = 0;
             }

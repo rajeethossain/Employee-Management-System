@@ -22,8 +22,6 @@ public class SalaryDisbursement extends JFrame {
     JLabel label7 = new JLabel("Others");
     JLabel label8 = new JLabel("Deduction");
     JLabel label9 = new JLabel("Disbursement");
-//    JLabel label10 = new JLabel("Other Allowance");
-//    JLabel label11 = new JLabel("Total Salary");
 
     JLabel searchLabel = new JLabel("Employe ID");
 
@@ -36,15 +34,13 @@ public class SalaryDisbursement extends JFrame {
     JTextField field7 = new JTextField(22);
     JTextField field8 = new JTextField(22);
     JTextField field9 = new JTextField(22);
-//    JTextField field10 = new JTextField(22);
-//    JTextField field11 = new JTextField(22);
 
     JTextField searchField = new JTextField(22);
     JTextField displayField = new JTextField(36);
 
     JButton button1 = new JButton("Show");
     JButton button2 = new JButton("Done");
-    JButton button3 = new JButton("Edit");
+    JButton button3 = new JButton("Back");
     JButton button4 = new JButton("Addition");
     JButton button5 = new JButton("Deduction");
     JButton button6 = new JButton("Bonus");
@@ -67,8 +63,7 @@ public class SalaryDisbursement extends JFrame {
         field7.setText("");
         field8.setText("");
         field9.setText("");
-//        field10.setText("");
-//        field11.setText("");
+
         displayField.setText("");
 
         String searchData = searchField.getText().toUpperCase();
@@ -77,20 +72,24 @@ public class SalaryDisbursement extends JFrame {
         if (!searchField.getText().equals("")) {
             for (EmployeData data : person.recordList) {
                 if (data.getId().equals(searchData)) {
+
+                    if(data.getBonus() == 1){
+                        button6.setBackground(Color.green);
+                    }
+                    else {
+                        button6.setBackground(null);
+                    }
+
                     field1.setText(data.getId());
                     field2.setText(data.getName());
                     field3.setText(data.getBankAcc());
                     field4.setText(data.getSalaryT()+"");
-                    field5.setText(data.getBonus()+"");
+                    field5.setText(data.getBonusAmt()+"");
                     field6.setText(data.getOT()+"");
                     field7.setText(data.getCommission()+"");
                     field8.setText(data.getDT()+"");
                     field9.setText(data.getSalaryDisbursement()+"");
-//                    field10.setText(data.getOtherAll()+"");
-//                    field11.setText(data.getSalaryT()+"");
-                    if(data.getBonus() == 1){
-                        button6.setBackground(Color.green);
-                    }
+
                     flag = 1;
                 }
             }
@@ -106,8 +105,6 @@ public class SalaryDisbursement extends JFrame {
     public SalaryDisbursement(int x, int y) {
         setTitle("EMS->Salary Disbursement");
         setBounds(x, y, 450, 560);
-//        setSize(450, 560);
-//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -128,13 +125,9 @@ public class SalaryDisbursement extends JFrame {
         field7.setEditable(false);
         field8.setEditable(false);
         field9.setEditable(false);
-//        field10.setEditable(false);
-//        field11.setEditable(false);
 
         displayField.setEditable(false);
 
-//        Client client = new Client();
-//        OTDT otdt = new OTDT();
         EmployeData person = new EmployeData();
 
         person.employeeList();
@@ -149,16 +142,24 @@ public class SalaryDisbursement extends JFrame {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                for (EmployeData dataU : person.recordList) {
-//                    dataU.setOT(0);
-//                    dataU.setDT(0);
-//                    dataU.setCommission(0);
-//
-//                    dataU.updateData();
-//                }
+                int res = JOptionPane.showConfirmDialog(null, "Clear OTDT Data");
+                if(res == JOptionPane.YES_OPTION){
+                    for (EmployeData dataU : person.recordList) {
+                        dataU.setOtHours(0);
+                        dataU.setOtDays(0);
+                        dataU.setCommission(0);
+                        dataU.setDtHours(0);
+                        dataU.setDtDays(0);
+                        dataU.setDtAmt(0);
 
-                person.saveDataUpdate();
-                displayField.setText("Data Updated");
+                        dataU.updateOTDT();
+                    }
+                    person.saveOTDTUpdate();
+
+                    Client client = new Client();
+                    client.sendData();
+                    displayField.setText("Data Updated");
+                }
 
                 dispose();
                 Search search = new Search(getX(), getY());
@@ -168,15 +169,16 @@ public class SalaryDisbursement extends JFrame {
             }
         });
 
-//        button3.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                UpdateData edit = new UpdateData();
-//                edit.searchField.setText(field1.getText());
-//                edit.showDataU(person, edit.positionU);
-//            }
-//        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Search search = new Search(getX(), getY());
+                search.searchField.setText(field1.getText());
+                search.showDetails(person);
+                search.displayField.setText("");
+            }
+        });
 
         button4.addActionListener(new ActionListener() {
             @Override
@@ -215,12 +217,10 @@ public class SalaryDisbursement extends JFrame {
                         if(button6.getBackground() == Color.green){
                             button6.setBackground(null);
                             data.setBonus(0);
-                            field5.setText("0");
                         }
                         else {
                             button6.setBackground(Color.green);
                             data.setBonus(1);
-                            field5.setText("1");
                         }
                     }
                 }
@@ -247,7 +247,7 @@ public class SalaryDisbursement extends JFrame {
         button8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+//                dispose();
                 DisbursementOutput output = new DisbursementOutput();
             }
         });
@@ -274,10 +274,6 @@ public class SalaryDisbursement extends JFrame {
         panel2.add(field8);
         panel2.add(label9);
         panel2.add(field9);
-//        panel2.add(label10);
-//        panel2.add(field10);
-//        panel2.add(label11);
-//        panel2.add(field11);
 
         panel3.add(button4);
         panel3.add(button5);
@@ -286,6 +282,7 @@ public class SalaryDisbursement extends JFrame {
         panel3.add(button8);
 
         panel5.add(button2);
+        panel5.add(button3);
 
         panel4.add(displayField);
 

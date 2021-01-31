@@ -41,7 +41,7 @@ public class SalaryBreakdown extends JFrame {
     JTextField displayField = new JTextField(36);
 
     JButton button1 = new JButton("Show");
-    JButton button2 = new JButton("Done");
+    JButton button2 = new JButton("Back");
     JButton button3 = new JButton("Edit");
 
 
@@ -92,8 +92,6 @@ public class SalaryBreakdown extends JFrame {
     public SalaryBreakdown(int x, int y) {
         setTitle("EMS->Salary Breakdown");
         setBounds(x,y,450,540);
-//        setSize(450, 540);
-//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -157,7 +155,7 @@ public class SalaryBreakdown extends JFrame {
                     dispose();
                     UpdateData edit = new UpdateData(getX(), getY());
                     edit.searchField.setText(field1.getText());
-                    edit.showDataU(person, edit.positionU);
+                    edit.showDataU(person, edit.positionU, edit.bonusScaleU);
                     edit.frameid = 1;
                 }
                 else{
