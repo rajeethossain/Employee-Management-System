@@ -1,5 +1,4 @@
 package Aplication;
-import Client.Client;
 import Employe.*;
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +8,9 @@ import java.awt.event.ActionListener;
 public class Deduction extends JFrame {
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
-    //    JPanel panel3 = new JPanel();
     JPanel panel4 = new JPanel();
     JPanel panel5 = new JPanel();
+
 
     JLabel label1 = new JLabel("Employe ID");
     JLabel label2 = new JLabel("Name");
@@ -20,7 +19,6 @@ public class Deduction extends JFrame {
     JLabel label5 = new JLabel("Days");
     JLabel label6 = new JLabel("Amount");
 
-    JLabel searchLabel = new JLabel("Employe ID");
 
     JTextField field1 = new JTextField(22);
     JTextField field2 = new JTextField(22);
@@ -29,12 +27,12 @@ public class Deduction extends JFrame {
     JTextField field5 = new JTextField(22);
     JTextField field6 = new JTextField(22);
 
-    //    JTextField searchField = new JTextField(22);
     JTextField displayField = new JTextField(36);
 
+
     JButton button1 = new JButton("Save");
-//    JButton button2 = new JButton("Done");
     JButton button3 = new JButton("Back");
+
 
     public void showDeduction(EmployeData person, String searchData){
         field1.setText("");
@@ -47,8 +45,7 @@ public class Deduction extends JFrame {
         displayField.setText("");
 
 
-
-        int flag = 0;
+//        int flag = 0;
         if (!searchData.equals("")) {
             for (EmployeData data : person.recordList) {
                 if (data.getId().equals(searchData)) {
@@ -58,23 +55,22 @@ public class Deduction extends JFrame {
                     field4.setText(data.getDtHours()+"");
                     field5.setText(data.getDtDays()+"");
                     field6.setText(data.getDtAmt()+"");
-                    flag = 1;
+//                    flag = 1;
                 }
             }
-            if (flag == 0) {
-                displayField.setText("Employee not Found");
-            }
-        } else {
-            displayField.setText("Please Enter an Employee ID");
+//            if (flag == 0) {
+//                displayField.setText("Employee not Found");
+//            }
         }
+//        else {
+//            displayField.setText("Please Enter an Employee ID");
+//        }
     }
 
-    Client client;
+
     public Deduction(int x, int y) {
         setTitle("OTDT->Deduction");
         setBounds(x, y, 450, 400);
-//        setSize(450, 400);
-//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -84,8 +80,7 @@ public class Deduction extends JFrame {
         panel2.setLayout(new GridLayout(1, 2));
         panel2.setPreferredSize(new Dimension(410, 60));
         panel2.setBorder(BorderFactory.createTitledBorder("Manual"));
-//        panel3.setPreferredSize(new Dimension(410, 70));
-//        panel3.setBorder(BorderFactory.createTitledBorder("Actions"));
+
 
         field1.setEditable(false);
         field2.setEditable(false);
@@ -96,35 +91,10 @@ public class Deduction extends JFrame {
 
         displayField.setEditable(false);
 
-        EmployeData person = new EmployeData();
 
+        EmployeData person = new EmployeData();
         person.employeeList();
 
-//        button2.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                for (EmployeData data : person.recordList) {
-//                    if (data.getId().equals(field1.getText())) {
-//                        try {
-//                            int hours = Integer.parseInt(field4.getText());
-//                            int days = Integer.parseInt(field5.getText());
-//                            int amount = Integer.parseInt(field6.getText());
-//
-//                            data.setOT(hours, days);
-//
-//                            System.out.println(data.getOT());
-//                            System.out.println(data.getSalaryB());
-//
-//                            data.setCommission(amount);
-//                        }
-//                        catch (Exception f){
-//                            System.out.println(f.getMessage());
-//                            displayField.setText("Invalid Input");
-//                        }
-//                    }
-//                }
-//            }
-//        });
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -140,7 +110,6 @@ public class Deduction extends JFrame {
                             data.setDtDays(days);
                             data.setDtHours(hours);
                             data.setDtAmt(amount);
-//                            data.setDT(hours, days, amount);
                         }
                         catch (Exception f){
                             System.out.println(f.getMessage());
@@ -151,7 +120,6 @@ public class Deduction extends JFrame {
                 }
                 if(flag == 0) {
                     for (EmployeData dataU : person.recordList) {
-                        //dataU.newData();
                         dataU.updateOTDT();
                     }
 
@@ -162,6 +130,7 @@ public class Deduction extends JFrame {
                     SalaryDisbursement disbursement = new SalaryDisbursement(getX(), getY());
                     disbursement.searchField.setText(field1.getText());
                     disbursement.showSalaryDisbursement(person);
+//                    disbursement.frameid = 1;
                 }
             }
         });
@@ -173,16 +142,10 @@ public class Deduction extends JFrame {
                 SalaryDisbursement disbursement = new SalaryDisbursement(getX(), getY());
                 disbursement.searchField.setText(field1.getText());
                 disbursement.showSalaryDisbursement(person);
+//                disbursement.frameid = 1;
             }
         });
 
-//        button4.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                UpdateData update = new UpdateData();
-//            }
-//        });
 
         panel1.add(label1);
         panel1.add(field1);
@@ -201,14 +164,11 @@ public class Deduction extends JFrame {
         panel5.add(button1);
         panel5.add(button3);
 
-//        panel5.add(button2);
-
         panel4.add(displayField);
 
         add(panel1);
         add(panel2);
         add(panel4);
-//        add(panel3);
         add(panel5);
 
         setVisible(true);

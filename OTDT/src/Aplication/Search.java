@@ -2,6 +2,9 @@ package Aplication;
 //import Login.*;
 import Client.Client;
 import Employe.*;
+import Login.Login;
+import Login.Registration;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +32,6 @@ public class Search extends JFrame {
     JLabel label7 = new JLabel("Mobile No");
     JLabel label8 = new JLabel("Email");
     JLabel label9 = new JLabel("Address");
-//    JLabel label10 = new JLabel("Total Salary");
 
     JLabel searchLabel = new JLabel("Employe ID");
 
@@ -42,7 +44,6 @@ public class Search extends JFrame {
     JTextField field7 = new JTextField(22);
     JTextField field8 = new JTextField(22);
     JTextField field9 = new JTextField(22);
-//    JTextField field10 = new JTextField(22);
 
     public JTextField searchField = new JTextField(22);
     JTextField displayField = new JTextField(36);
@@ -50,10 +51,8 @@ public class Search extends JFrame {
     JButton button1 = new JButton("Show");
     JButton button2 = new JButton("New User");
     JButton button3 = new JButton("Logout");
-//    JButton button4 = new JButton("Addition");
-//    JButton button5 = new JButton("Deduction");
     JButton button6 = new JButton("Staff List");
-    JButton button7 = new JButton("Done");
+//    JButton button7 = new JButton("Done");
     JButton button8 = new JButton("Salary");
 
     public void showDetails(EmployeData person){
@@ -66,7 +65,6 @@ public class Search extends JFrame {
         field7.setText("");
         field8.setText("");
         field9.setText("");
-//        field10.setText("");
         displayField.setText("");
 
         String searchData = searchField.getText().toUpperCase();
@@ -84,7 +82,6 @@ public class Search extends JFrame {
                     field7.setText(data.getMobNumber());
                     field8.setText(data.getEmail());
                     field9.setText(data.getAddress());
-//                    field10.setText(data.getSalaryT()+"");
                     flag = 1;
                 }
             }
@@ -100,8 +97,6 @@ public class Search extends JFrame {
     public Search(int x, int y) {
         setTitle("OTDT->Employee Information");
         setBounds(x,y,450,610);
-//        setSize(450, 610);
-//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -122,13 +117,11 @@ public class Search extends JFrame {
         field7.setEditable(false);
         field8.setEditable(false);
         field9.setEditable(false);
-//        field10.setEditable(false);
 
         displayField.setEditable(false);
 
         EmployeData person = new EmployeData();
         Client client = new Client();
-
 
         person.employeeList();
 
@@ -139,48 +132,21 @@ public class Search extends JFrame {
             }
         });
 
-//        button2.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                Registration registration = new Registration();
-//            }
-//        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Registration registration = new Registration(getX(), getY());
+            }
+        });
 
-//        button3.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                Login login = new Login();
-//            }
-//        });
-
-//        button4.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                Addition addition = new Addition();
-////                update.searchField.setText(field1.getText());
-////                update.showDataU(person, update.positionU);
-////                update.displayField.setText("");
-////                update.frameid = 0;
-//            }
-//        });
-//
-//        button5.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dispose();
-//                Search search = new Search();
-//                search.initiate();
-////                dispose();
-////                Deduction deduction = new Deduction();
-////                breakdown.searchField.setText(field1.getText());
-////                breakdown.showSalaryBreakdown(person);
-////                breakdown.displayField.setText("");
-////                breakdown.frameid = 0;
-//            }
-//        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Login login = new Login();
+            }
+        });
 
         button6.addActionListener(new ActionListener() {
             @Override
@@ -191,16 +157,12 @@ public class Search extends JFrame {
             }
         });
 
-        button7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                client.sendData();
-
-//                dispose();
-//                Search search = new Search();
-//                search.initiate();
-            }
-        });
+//        button7.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                client.sendData();
+//            }
+//        });
 
         button8.addActionListener(new ActionListener() {
             @Override
@@ -210,7 +172,7 @@ public class Search extends JFrame {
                 disbursement.searchField.setText(field1.getText());
                 disbursement.showSalaryDisbursement(person);
                 disbursement.displayField.setText("");
-//                client.disconnect();
+//                disbursement.frameid = 2;
             }
         });
 
@@ -236,15 +198,12 @@ public class Search extends JFrame {
         panel2.add(field8);
         panel2.add(label9);
         panel2.add(field9);
-//        panel2.add(label10);
-//        panel2.add(field10);
 
         panel5.add(displayField);
 
         panel3.add(button6);
         panel3.add(button8);
-//        panel3.add(button5);
-        panel3.add(button7);
+//        panel3.add(button7);
 
         panel4.add(button3);
         panel4.add(button2);
