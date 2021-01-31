@@ -54,29 +54,29 @@ public class Client{
             reader = new Scanner(isr);
 
             employeData = new EmployeData();
-            FileWriter fileWriter = new FileWriter(employeData.otdt);
-            Thread getData = new Thread(){
-                @Override
-                public void run() {
-                    try {
-                        while (reader.hasNextLine()) {
-                            String line = reader.nextLine();
-                            if (line.equals("<eof>")) {
-                                break;
-                            }
-                            System.out.println(line);
-                            fileWriter.append(line + "\n");
-                            fileWriter.flush();
-                        }
-                        System.out.println("Data Updated");
-                    }
-                    catch (Exception e){
-                        System.out.println(e.getMessage());
-                    }
-                }
-            };
-
-            getData.start();
+//            FileWriter fileWriter = new FileWriter(employeData.otdt);
+//            Thread getData = new Thread(){
+//                @Override
+//                public void run() {
+//                    try {
+//                        while (reader.hasNextLine()) {
+//                            String line = reader.nextLine();
+//                            if (line.equals("<eof>")) {
+//                                break;
+//                            }
+//                            System.out.println(line);
+//                            fileWriter.append(line + "\n");
+//                            fileWriter.flush();
+//                        }
+//                        System.out.println("Data Updated");
+//                    }
+//                    catch (Exception e){
+//                        System.out.println(e.getMessage());
+//                    }
+//                }
+//            };
+//
+//            getData.start();
 
         }
         catch (IOException e){
@@ -84,26 +84,26 @@ public class Client{
         }
     }
 
-//    public void updateData(){
-//
-//        try {
-//            FileWriter fileWriter = new FileWriter(employeData.otdt);
-//
-//            while (reader.hasNextLine()) {
-//                String line = reader.nextLine();
-//                if (line.equals("<eof>")) {
-//                    break;
-//                }
-//                System.out.println(line);
-//                fileWriter.append(line + "\n");
-//                fileWriter.flush();
-//            }
-//            System.out.println("Data Updated");
-//        }
-//        catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }
-//    }
+    public void updateData(){
+
+        try {
+            FileWriter fileWriter = new FileWriter(employeData.otdt);
+
+            while (reader.hasNextLine()) {
+                String line = reader.nextLine();
+                if (line.equals("<eof>")) {
+                    break;
+                }
+                System.out.println(line);
+                fileWriter.append(line + "\n");
+                fileWriter.flush();
+            }
+            System.out.println("Data Updated");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void sendData(){
         try {

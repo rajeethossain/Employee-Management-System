@@ -89,10 +89,11 @@ public class SalaryBreakdown extends JFrame {
 
     public int frameid;
 
-    public SalaryBreakdown() {
+    public SalaryBreakdown(int x, int y) {
         setTitle("EMS->Salary Breakdown");
-        setSize(450, 540);
-        setLocationRelativeTo(null);
+        setBounds(x,y,450,540);
+//        setSize(450, 540);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -135,13 +136,13 @@ public class SalaryBreakdown extends JFrame {
                 dispose();
 
                 if(frameid == 0) {
-                    Search search = new Search();
+                    Search search = new Search(getX(), getY());
                     search.searchField.setText(field1.getText());
                     search.showDetails(person);
                     search.displayField.setText("");
                 }
                 else{
-                    SalaryDisbursement disbursement = new SalaryDisbursement();
+                    SalaryDisbursement disbursement = new SalaryDisbursement(getX(), getY());
                     disbursement.searchField.setText(field1.getText());
                     disbursement.showSalaryDisbursement(person);
                     disbursement.displayField.setText("");
@@ -154,7 +155,7 @@ public class SalaryBreakdown extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(!field1.getText().equals("")) {
                     dispose();
-                    UpdateData edit = new UpdateData();
+                    UpdateData edit = new UpdateData(getX(), getY());
                     edit.searchField.setText(field1.getText());
                     edit.showDataU(person, edit.positionU);
                     edit.frameid = 1;

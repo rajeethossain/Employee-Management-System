@@ -13,7 +13,7 @@ public class main {
 //      Login start = new Login();
 //        Client client = new Client();
 //        client.updateData();
-        Search s = new Search();
+        Search s = new Search(200, 200);
 //        OTDT otdt = new OTDT();
 //        NewEntry n = new NewEntry();
 //        EmployeData n = new EmployeData();

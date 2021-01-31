@@ -61,7 +61,7 @@ public class DisbursementOutput extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SalaryDisbursement disbursement = new SalaryDisbursement();
+                SalaryDisbursement disbursement = new SalaryDisbursement(getX(),getY());
             }
         });
 

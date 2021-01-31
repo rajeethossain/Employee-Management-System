@@ -76,7 +76,7 @@ import Aplication.*;
                         if (field1.getText().equals(get.userId) && field2.getText().equals(get.password)) {
                             field7.setText("Login Successful");
                             flag = 1;
-                            Search application = new Search();
+                            Search application = new Search(getX(),getY());
                             dispose();
                         }
                     }

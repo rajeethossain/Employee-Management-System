@@ -116,10 +116,11 @@ public class UpdateData extends JFrame {
 
     }
 
-    public UpdateData() {
+    public UpdateData(int x, int y) {
         setTitle("EMS->Employee Update");
-        setSize(450, 680);
-        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 680);
+//        setSize(450, 680);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -256,12 +257,12 @@ public class UpdateData extends JFrame {
                 dispose();
 
                 if(frameid == 0) {
-                    Search application = new Search();
+                    Search application = new Search(getX(), getY());
                     application.searchField.setText(field1.getText());
                     application.showDetails(personU);
                 }
                 else{
-                    SalaryBreakdown breakdown = new SalaryBreakdown();
+                    SalaryBreakdown breakdown = new SalaryBreakdown(getX(), getY());
                     breakdown.searchField.setText(field1.getText());
                     breakdown.showSalaryBreakdown(personU);
                     breakdown.displayField.setText("");
@@ -281,7 +282,7 @@ public class UpdateData extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                NewEntry entry = new NewEntry();
+                NewEntry entry = new NewEntry(getX(), getY());
             }
         });
 

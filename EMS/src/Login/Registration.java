@@ -23,8 +23,9 @@ public class Registration extends JFrame {
     JButton button3 = new JButton("Save");
     JButton button4 = new JButton("Done");
 
-    public Registration() {
+    public Registration(int x, int y) {
         setTitle("Registration");
+        setBounds(x, y, 450, 250);
         setSize(450, 250);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -61,7 +62,7 @@ public class Registration extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Search application = new Search();
+                Search application = new Search(getX(), getY());
             }
         });
 

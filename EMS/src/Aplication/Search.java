@@ -96,10 +96,11 @@ public class Search extends JFrame {
     }
 
 
-    public Search() {
+    public Search(int x, int y) {
         setTitle("EMS->Employee Information");
-        setSize(450, 610);
-        setLocationRelativeTo(null);
+        setBounds(x,y,450,610);
+//        setSize(450, 610);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -140,7 +141,7 @@ public class Search extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Registration registration = new Registration();
+                Registration registration = new Registration(getX(), getY());
             }
         });
 
@@ -156,7 +157,7 @@ public class Search extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                UpdateData update = new UpdateData();
+                UpdateData update = new UpdateData(getX(), getY());
                 update.searchField.setText(field1.getText());
                 update.showDataU(person, update.positionU);
                 update.displayField.setText("");
@@ -168,7 +169,7 @@ public class Search extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SalaryBreakdown breakdown = new SalaryBreakdown();
+                SalaryBreakdown breakdown = new SalaryBreakdown(getX(), getY());
                 breakdown.searchField.setText(field1.getText());
                 breakdown.showSalaryBreakdown(person);
                 breakdown.displayField.setText("");
@@ -180,7 +181,7 @@ public class Search extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                StaffList stafflist = new StaffList();
+                StaffList stafflist = new StaffList(getX(), getY());
                 stafflist.showAll(person);
             }
         });
@@ -189,7 +190,7 @@ public class Search extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SalaryDisbursement disbursement = new SalaryDisbursement();
+                SalaryDisbursement disbursement = new SalaryDisbursement(getX(), getY());
                 disbursement.searchField.setText(field1.getText());
                 disbursement.showSalaryDisbursement(person);
                 disbursement.displayField.setText("");

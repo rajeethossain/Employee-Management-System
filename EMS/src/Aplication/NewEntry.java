@@ -55,10 +55,11 @@ public class NewEntry extends JFrame {
     PositionList positionN = new PositionList();
 
 
-    public NewEntry() {
+    public NewEntry(int x, int y) {
         setTitle("EMS->Employee Entry");
-        setSize(450, 580);
-        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 580);
+//        setSize(450, 580);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -113,7 +114,7 @@ public class NewEntry extends JFrame {
                         personN.saveOTDT();
                         client.sendData();
                         dispose();
-                        NewEntry entry = new NewEntry();
+                        NewEntry entry = new NewEntry(getX(), getY());
                         entry.displayField.setText("Data Saved");
                     }
                 } else {
@@ -126,7 +127,7 @@ public class NewEntry extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                UpdateData updateData = new UpdateData();
+                UpdateData updateData = new UpdateData(getX(), getY());
             }
         });
 

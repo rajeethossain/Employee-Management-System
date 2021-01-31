@@ -54,6 +54,7 @@ public class SalaryDisbursement extends JFrame {
 
     public void showSalaryDisbursement(EmployeData person){
         Client client = new Client();
+        client.updateData();
         OTDT otdt = new OTDT();
         person.employeeList();
 
@@ -102,10 +103,11 @@ public class SalaryDisbursement extends JFrame {
     }
 
 
-    public SalaryDisbursement() {
+    public SalaryDisbursement(int x, int y) {
         setTitle("EMS->Salary Disbursement");
-        setSize(450, 560);
-        setLocationRelativeTo(null);
+        setBounds(x, y, 450, 560);
+//        setSize(450, 560);
+//        setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -147,19 +149,19 @@ public class SalaryDisbursement extends JFrame {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (EmployeData dataU : person.recordList) {
-                    dataU.setOT(0);
-                    dataU.setDT(0);
-                    dataU.setCommission(0);
-
-                    dataU.updateData();
-                }
+//                for (EmployeData dataU : person.recordList) {
+//                    dataU.setOT(0);
+//                    dataU.setDT(0);
+//                    dataU.setCommission(0);
+//
+//                    dataU.updateData();
+//                }
 
                 person.saveDataUpdate();
                 displayField.setText("Data Updated");
 
                 dispose();
-                Search search = new Search();
+                Search search = new Search(getX(), getY());
                 search.searchField.setText(field1.getText());
                 search.showDetails(person);
                 search.displayField.setText("");
@@ -181,7 +183,7 @@ public class SalaryDisbursement extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(!field1.getText().equals("")) {
                     dispose();
-                    Addition addition = new Addition();
+                    Addition addition = new Addition(getX(), getY());
                     addition.showOvertime(person, field1.getText());
                 }
                 else{
@@ -195,7 +197,7 @@ public class SalaryDisbursement extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(!field1.getText().equals("")) {
                     dispose();
-                    Deduction deduction = new Deduction();
+                    Deduction deduction = new Deduction(getX(), getY());
                     deduction.showDeduction(person, field1.getText());
                 }
                 else{
@@ -234,7 +236,7 @@ public class SalaryDisbursement extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SalaryBreakdown breakdown = new SalaryBreakdown();
+                SalaryBreakdown breakdown = new SalaryBreakdown(getX(), getY());
                 breakdown.searchField.setText(field1.getText());
                 breakdown.showSalaryBreakdown(person);
                 breakdown.displayField.setText("");

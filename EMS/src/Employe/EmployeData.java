@@ -30,6 +30,7 @@ public class EmployeData {
     private int eduAll;
     private int otherAll;
     private int Bonus;
+    private int bonusAmt;
     private int ot;
     private int otDays;
     private int otHours;
@@ -113,28 +114,28 @@ public class EmployeData {
         Bonus = bonus;
     }
 
-    public void setOT(int hours, int days) {
-        ot = (getSalaryHours()*hours) + (getSalaryDays()*days);
+//    public void setOT(int hours, int days) {
+//        ot = (getSalaryHours()*hours) + (getSalaryDays()*days);
+//    }
+
+    public void setOT() {
+        ot = getOT();
     }
 
-    public void setOT(int ot) {
-        this.ot = ot;
-    }
+//    public void setDT(int hours, int days, int amount) {
+//        dt = (getSalaryHours()*hours) + (getSalaryDays()*days) + amount;
+//    }
 
-    public void setDT(int hours, int days, int amount) {
-        dt = (getSalaryHours()*hours) + (getSalaryDays()*days) + amount;
-    }
-
-    public void setDT(int dt) {
-        this.dt = dt;
+    public void setDT() {
+        dt = getDT();
     }
 
     public void setCommission(int commission) {
         this.commission = commission;
     }
 
-    public void setSalaryT(int salaryT) {
-        this.salaryT = salaryT;
+    public void setSalaryT() {
+        salaryT = getSalaryT();
     }
 //
 //    public void setSalaryDays() {
@@ -145,12 +146,12 @@ public class EmployeData {
 //        this.salaryHours = salaryDays/24;
 //    }
 //
-    public void setSalaryDisbursement(int salaryDisbursement) {
-        this.salaryDisbursement = salaryDisbursement;
+    public void setSalaryDisbursement() {
+        salaryDisbursement = getSalaryDisbursement();
     }
 
-    public void setTotalAll(int totalAll) {
-        this.totalAll = totalAll;
+    public void setTotalAll() {
+        totalAll = getTotalAll();
     }
 
     public void setOtDays(int otDays) {
@@ -172,6 +173,7 @@ public class EmployeData {
     public void setDtAmt(int dtAmt) {
         this.dtAmt = dtAmt;
     }
+
 
     //Get Data
     public String getId() {
@@ -240,10 +242,12 @@ public class EmployeData {
     }
 
     public int getOT() {
+        ot = (getSalaryHours()*otHours) + (getSalaryDays()*otDays);
         return ot;
     }
 
     public int getDT() {
+        dt = (getSalaryHours()*dtHours) + (getSalaryDays()*dtDays) + dtAmt;
         return dt;
     }
 
@@ -270,13 +274,33 @@ public class EmployeData {
     }
 
     public int getSalaryDisbursement() {
-        salaryDisbursement = (salaryT + ot + Bonus + commission) - dt;
+        salaryDisbursement = (salaryT + ot + bonusAmt + commission) - dt;
         return salaryDisbursement;
     }
 
     public int getTotalAll() {
         totalAll = mobAll + medAll + eduAll + expAll + rentAll + otherAll;
         return totalAll;
+    }
+
+    public int getOtDays() {
+        return otDays;
+    }
+
+    public int getOtHours() {
+        return otHours;
+    }
+
+    public int getDtDays() {
+        return dtDays;
+    }
+
+    public int getDtHours() {
+        return dtHours;
+    }
+
+    public int getDtAmt() {
+        return dtAmt;
     }
 
 
@@ -292,17 +316,30 @@ public class EmployeData {
 
 
     //Write to File
+
     void writeFile(File file){
         try {
             FileWriter write = new FileWriter(file, true);
 
-            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + ot + ";" + commission + ";" + dt + ";" + getSalaryDisbursement() + "\n");
+            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll + ";" + Bonus + ";" + otHours + ";" + otDays + ";"  + commission + ";" + dtHours + ";" + dtDays + ";" + dtAmt + "\n");
 
             write.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
+
+//    void writeFile(File file){
+//        try {
+//            FileWriter write = new FileWriter(file, true);
+//
+//            write.append(id + ";" + name + ";" + bankAcc + ";" + department + ";" + designation + ";" + area + ";" + mobNumber + ";" + email + ";" + address + ";" + salaryB + ";" + mobAll + ";" + medAll + ";" + expAll + ";" + eduAll + ";" + rentAll + ";" + otherAll +  ";" + getTotalAll() + ";" + getSalaryT() + ";" + Bonus + ";" + otHours + ";" + otDays + ";"  + commission + ";" + dtHours + ";" + dtDays + ";" + dtAmt + ";" + getSalaryDisbursement() + "\n");
+//
+//            write.close();
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 
     //Write StaffData
 //    void writeStaffData(File file){
@@ -478,13 +515,25 @@ public class EmployeData {
                     personData.setEduAll(Integer.parseInt(dataSplit[13]));
                     personData.setRentAll(Integer.parseInt(dataSplit[14]));
                     personData.setOtherAll(Integer.parseInt(dataSplit[15]));
-                    personData.setTotalAll(Integer.parseInt(dataSplit[16]));
-                    personData.setSalaryT(Integer.parseInt(dataSplit[17]));
-                    personData.setBonus(Integer.parseInt(dataSplit[18]));
-                    personData.setOT(Integer.parseInt(dataSplit[19]));
-                    personData.setCommission(Integer.parseInt(dataSplit[20]));
-                    personData.setDT(Integer.parseInt(dataSplit[21]));
-                    personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
+                    personData.setBonus(Integer.parseInt(dataSplit[16]));
+                    personData.setOtHours(Integer.parseInt(dataSplit[17]));
+                    personData.setOtDays(Integer.parseInt(dataSplit[18]));
+                    personData.setCommission(Integer.parseInt(dataSplit[19]));
+                    personData.setDtHours(Integer.parseInt(dataSplit[20]));
+                    personData.setDtDays(Integer.parseInt(dataSplit[21]));
+                    personData.setDtAmt(Integer.parseInt(dataSplit[22]));
+                    personData.setSalaryT();
+                    personData.setTotalAll();
+                    personData.setOT();
+                    personData.setDT();
+                    personData.setSalaryDisbursement();
+
+//                    personData.setTotalAll(Integer.parseInt(dataSplit[16]));
+//                    personData.setSalaryT(Integer.parseInt(dataSplit[17]));
+//                    personData.setOT(Integer.parseInt(dataSplit[19]));
+//                    personData.setCommission(Integer.parseInt(dataSplit[20]));
+//                    personData.setDT(Integer.parseInt(dataSplit[21]));
+//                    personData.setSalaryDisbursement(Integer.parseInt(dataSplit[22]));
 
                     recordList.add(personData);
 
