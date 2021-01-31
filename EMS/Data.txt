@@ -1,4 +1,4 @@
-ITDHA-1;Rajeet;111111;IT;Manager;Dhaka;N/A;N/A;N/A;20000;0;0;0;0;0;0;0;0;0;500;0;0;0;0.5
+ITDHA-1;Rajeet;111111;IT;Manager;Dhaka;017********;rajeet@gmail.com;Mohammadpur;20000;0;0;0;0;0;0;1;0;0;500;0;0;700;0.5
 OFCTG-1;Anas;111111;Office;Accounts Officer;Chittagong;N/A;N/A;N/A;15000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.0
 LBRAJ-1;Tarin;111111;Lab;Lab Technician;Rajshahi;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;0;0;500;0;0;0;0.0
 MKCTG-1;Lamin;111111;Marketing;Marketing Manager;Chittagong;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.0
