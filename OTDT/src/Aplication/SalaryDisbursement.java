@@ -207,9 +207,12 @@ public class SalaryDisbursement extends JFrame {
                             if (button6.getBackground() == Color.green) {
                                 button6.setBackground(null);
                                 data.setBonus(0);
+                                field4.setText("OFF");
+
                             } else {
                                 button6.setBackground(Color.green);
                                 data.setBonus(1);
+                                field4.setText("ON");
                             }
                         }
                     }
