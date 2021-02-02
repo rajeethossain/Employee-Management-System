@@ -1,4 +1,4 @@
-ITDHA-1;Rajeet;111111;IT;Manager;Dhaka;017********;rajeet@gmail.com;Mohammadpur;20000;0;0;0;0;0;0;1;0;0;500;0;0;700;0.5
+ITDHA-1;Rajeet;111111;IT;Manager;Dhaka;017********;rajeet@gmail.com;Mohammadpur;20000;500;1000;0;0;0;0;0;0;0;200;0;0;700;0.5
 OFCTG-1;Anas;111111;Office;Accounts Officer;Chittagong;N/A;N/A;N/A;15000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.0
 LBRAJ-1;Tarin;111111;Lab;Lab Technician;Rajshahi;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;0;0;500;0;0;0;0.0
 MKCTG-1;Lamin;111111;Marketing;Marketing Manager;Chittagong;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.0
@@ -12,3 +12,4 @@ OFDHA-2;Mijan;1111;Office;Office Staff;Dhaka;N/A;N/A;N/A;5000;0;0;0;0;0;0;0;0;0;
 OFDHA-3;Kabir;111111;Office;Office Staff;Dhaka;N/A;N/A;N/A;9000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.0
 LBDHA-1;Biplob;11111;Lab;Lab Technician;Dhaka;N/A;N/A;N/A;12000;0;0;0;0;0;0;0;0;0;500;0;0;300;0.0
 LBDHA-2;Rejaul;111111;Lab;Lab Incharge;Dhaka;N/A;N/A;N/A;20000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.0
+OFDHA-4;Alamin;454544;Office;Office Staff;Dhaka;N/A;N/A;N/A;10000;0;0;0;0;0;0;0;0;0;0;0;0;0;0.5
